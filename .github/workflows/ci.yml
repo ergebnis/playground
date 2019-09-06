@@ -1,0 +1,23 @@
+on:
+  - push
+  - pull_request
+
+name: CI
+
+jobs:
+  php-cs-fixer:
+    name: php-cs-fixer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+
+      - name: Install dependencies with composer
+        uses: docker://composer:1.9.0
+        with:
+          args: composer install
+
+      - name: Run friendsofphp/php-cs-fixer
+        uses: docker://php:7.3-cli-alpine
+        with:
+          args: ./tools/php-cs-fixer fix --diff-format=udiff --dry-run --show-progress=dots --using-cache=no --verbose

@@ -1,6 +1,6 @@
 # playground
 
-[![Build Status](https://travis-ci.com/localheinz/playground.svg?branch=master)](https://travis-ci.com/localheinz/playground)
+[![CI Status](https://github.com/localheinz/playground/workflows/Continuous-Integration/badge.svg)](https://github.com/localheinz/playground/actions)
 [![codecov](https://codecov.io/gh/localheinz/playground/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/playground)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/playground/v/stable)](https://packagist.org/packages/localheinz/playground)
 [![Total Downloads](https://poser.pugx.org/localheinz/playground/downloads)](https://packagist.org/packages/localheinz/playground)

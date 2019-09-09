@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 use Localheinz\PhpCsFixer\Config;
 
-require_once __DIR__ . '/vendor/autoload.php';
-
 $header = <<<'EOF'
 Copyright (c) 2019 Andreas Möller
 
@@ -33,7 +31,6 @@ $config->getFinder()
         '.build',
         '.dependabot',
         '.github',
-        '.travis',
     ])
     ->name('.php_cs');
 

@@ -10,10 +10,15 @@ branches:
         required_approving_review_count: 1
       required_status_checks:
         contexts:
-          - "codecov/patch"
-          - "codecov/project"
-          - "Travis CI - Branch"
-          - "Travis CI - Pull Request"
+          -  "Coding Standards"
+          -  "Static Code Analysis"
+          -  "Tests (php7.3, lowest)"
+          -  "Tests (php7.3, locked)"
+          -  "Tests (php7.3, highest)"
+          -  "Code Coverage"
+          -  "Mutation Tests"
+          -  "codecov/patch"
+          -  "codecov/project"
         strict: false
       restrictions: null
 

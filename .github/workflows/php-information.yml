@@ -3,7 +3,7 @@
 on:
   - pull_request
 
-name: "Information"
+name: "PHP Information"
 
 jobs:
   php:

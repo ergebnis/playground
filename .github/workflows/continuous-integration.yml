@@ -17,13 +17,13 @@ jobs:
         uses: actions/checkout@master
 
       - name: "Validate composer.json and composer.lock"
-        run: php7.3 /usr/bin/composer validate --strict
+        run: php7.3 $(which composer) validate --strict
 
       - name: "Install locked dependencies with composer"
-        run: php7.3 /usr/bin/composer install
+        run: php7.3 $(which composer) install
 
       - name: "Run localheinz/composer-normalize"
-        run: php7.3 /usr/bin/composer normalize --dry-run
+        run: php7.3 $(which composer) normalize --dry-run
 
       - name: "Run friendsofphp/php-cs-fixer"
         run: php7.3 vendor/bin/php-cs-fixer fix --diff --dry-run --using-cache=no --verbose
@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: "Install locked dependencies with composer"
-        run: php7.3 /usr/bin/composer install
+        run: php7.3 $(which composer) install
 
       - name: "Run phpstan/phpstan"
         run: php7.3 vendor/bin/phpstan analyse --configuration=phpstan.neon
@@ -63,15 +63,15 @@ jobs:
 
       - name: "Install lowest dependencies with composer"
         if: matrix.dependencies == 'lowest'
-        run: ${{ matrix.php-binary }} /usr/bin/composer update --prefer-lowest
+        run: ${{ matrix.php-binary }} $(which composer) update --prefer-lowest
 
       - name: "Install locked dependencies with composer"
         if: matrix.dependencies == 'locked'
-        run: ${{ matrix.php-binary }} /usr/bin/composer install
+        run: ${{ matrix.php-binary }} $(which composer) install
 
       - name: "Install highest dependencies with composer"
         if: matrix.dependencies == 'highest'
-        run: ${{ matrix.php-binary }} /usr/bin/composer update
+        run: ${{ matrix.php-binary }} $(which composer) update
 
       - name: "Run auto-review tests with phpunit/phpunit"
         run: ${{ matrix.php-binary }} vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
@@ -92,7 +92,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: "Install locked dependencies with composer"
-        run: php7.3 /usr/bin/composer install
+        run: php7.3 $(which composer) install
 
       - name: "Dump Xdebug filter with phpunit/phpunit"
         run: php7.3 vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
@@ -116,7 +116,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: "Install locked dependencies with composer"
-        run: php7.3 /usr/bin/composer install
+        run: php7.3 $(which composer) install
 
       - name: "Dump Xdebug filter with phpunit/phpunit"
         run: php7.3 vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php

@@ -13,12 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Content"
-        run: echo ${GITHUB_REF}
-
       - name: "Is branch"
-        if: "startsWith(github.ref, 'refs/heads/')"
+        if: "startsWith(github.event.ref, 'refs/heads/')"
         run: echo "Is branch"
+
+      - name: "Is master"
+        if: "github.event.name == 'push' && github.event.ref == 'refs/heads/master'"
+        run: echo "Is master"
 
       - name: "Is pull request"
         if: "startsWith(github.ref, 'refs/pull/')"

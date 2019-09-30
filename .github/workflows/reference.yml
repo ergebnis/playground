@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: "Content"
+        run: echo ${GITHUB_REF}
+
       - name: "Is branch"
         if: "startsWith(github.ref, 'refs/heads/')"
         run: echo "Is branch"

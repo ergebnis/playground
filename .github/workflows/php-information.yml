@@ -29,5 +29,11 @@ jobs:
       - name: "Information"
         run: ${{ matrix.php-binary}} -i
 
+      - name: "Disable Xdebug"
+        run: mv /etc/php/7.3/cli/conf.d/20-xdebug.ini /etc/php/7.3/cli/conf.d/20-xdebug.ini.bal
+
+      - name: "Information"
+        run: ${{ matrix.php-binary}} -i
+
       - name: "Extensions"
         run: ${{ matrix.php-binary}} -m

@@ -14,11 +14,11 @@ jobs:
 
     steps:
       - name: "Is branch"
-        if: "startsWith(github.event.ref, 'refs/heads/')"
+        if: "startsWith(github.ref, 'refs/heads/')"
         run: echo "Is branch"
 
       - name: "Is master"
-        if: "github.event.name == 'push' && github.event.ref == 'refs/heads/master'"
+        if: "github.event_name == 'push' && github.ref == 'refs/heads/master'"
         run: echo "Is master"
 
       - name: "Is pull request"

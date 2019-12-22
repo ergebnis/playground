@@ -10,8 +10,6 @@ update_configs:
       - "localheinz"
     default_labels:
       - "dependency"
-    default_reviewers:
-      - "localheinz"
     directory: "/"
     package_manager: "php:composer"
     update_schedule: "live"

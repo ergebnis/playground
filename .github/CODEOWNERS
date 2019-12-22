@@ -1,1 +1,4 @@
-* @localheinz
+.github/        @localheinz
+.dependabot/    @localheinz
+src/            @localheinz
+test/           @localheinz

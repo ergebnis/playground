@@ -20,7 +20,11 @@ branches:
           -  "codecov/patch"
           -  "codecov/project"
         strict: false
-      restrictions: null
+      restrictions:
+        apps:
+          - "dependabot-preview"
+        teams: []
+        users: []
 
 labels:
   - name: bug

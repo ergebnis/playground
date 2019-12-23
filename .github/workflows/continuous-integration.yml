@@ -28,6 +28,9 @@ jobs:
       - name: "Run friendsofphp/php-cs-fixer"
         run: php7.3 vendor/bin/php-cs-fixer fix --diff --dry-run --using-cache=no --verbose
 
+      - name: "Show a diff"
+        run: "diff --color -u composer.json <(wget --quiet O- 'https://getcomposer.org/schema.json')"
+
   static-code-analysis:
     name: "Static Code Analysis"
 

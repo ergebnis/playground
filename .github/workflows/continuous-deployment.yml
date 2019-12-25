@@ -1,0 +1,29 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+  push:
+    tags:
+      - "**"
+
+name: "Continuous Deployment"
+
+jobs:
+  create-release:
+    name: "Create release"
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Create release"
+        id: "create_release"
+        uses: "actions/create-release@v1.0.0"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          tag_name: "${{ github.ref }}"
+          release_name: "${{ github.ref }}"
+          draft: false
+          prerelease: false
+
+      - name: "Show release URL"
+        run: "echo ${{ steps.create_release.outputs.upload_url }}"

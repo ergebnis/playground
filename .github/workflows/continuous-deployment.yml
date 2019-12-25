@@ -25,5 +25,22 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: "Show release URL"
-        run: "echo ${{ steps.create_release.outputs.upload_url }}"
+      - name: "Upload Makefile"
+        uses: "actions/upload-release-asset@v1.0.1"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          asset_content_type: "text/plain"
+          asset_name: "Makefile"
+          asset_path: "Makefile"
+          upload_url: "${{ steps.create_release.outputs.upload_url }}"
+
+      - name: "Upload phpstan.neon"
+        uses: "actions/upload-release-asset@v1.0.1"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          asset_content_type: "text/plain"
+          asset_name: "phpstan.neon"
+          asset_path: "phpstan.neon"
+          upload_url: "${{ steps.create_release.outputs.upload_url }}"

@@ -18,7 +18,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Create release"
-        id: "create_release"
+        id: "create-release"
         uses: "actions/create-release@v1.0.0"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -36,7 +36,7 @@ jobs:
           asset_content_type: "text/plain"
           asset_name: "Makefile"
           asset_path: "Makefile"
-          upload_url: "${{ steps.create_release.outputs.upload_url }}"
+          upload_url: "${{ steps.create-release.outputs.upload_url }}"
 
       - name: "Upload phpstan.neon"
         uses: "actions/upload-release-asset@v1.0.1"
@@ -46,4 +46,4 @@ jobs:
           asset_content_type: "text/plain"
           asset_name: "phpstan.neon"
           asset_path: "phpstan.neon"
-          upload_url: "${{ steps.create_release.outputs.upload_url }}"
+          upload_url: "${{ steps.create-release.outputs.upload_url }}"

@@ -28,6 +28,9 @@ jobs:
       - name: "Run friendsofphp/php-cs-fixer"
         run: php7.3 vendor/bin/php-cs-fixer fix --diff --dry-run --using-cache=no --verbose
 
+      - name: "Receive key with gpg"
+        run: "gpg --receive-key 0FDE18AE1D09E19F60F6B1CBC00543248C87FB13"
+
   static-code-analysis:
     name: "Static Code Analysis"
 

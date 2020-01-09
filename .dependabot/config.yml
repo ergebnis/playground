@@ -6,8 +6,9 @@ update_configs:
   - automerged_updates:
       - match:
           dependency_type: "development"
-    default_assignees:
-      - "localheinz"
+    commit_message:
+      include_scope: true
+      prefix: "Build"
     default_labels:
       - "dependency"
     directory: "/"

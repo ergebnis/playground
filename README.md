@@ -1,7 +1,9 @@
 # playground
 
-[![CI Status](https://github.com/localheinz/playground/workflows/Continuous-Integration/badge.svg)](https://github.com/localheinz/playground/actions)
-[![codecov](https://codecov.io/gh/localheinz/playground/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/playground)
+[![Continuous Deployment](https://github.com/localheinz/playground/workflows/Continuous%20Deployment/badge.svg)](https://github.com/localheinz/playground/actions)
+[![Continuous Integration](https://github.com/localheinz/playground/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/playground/actions)
+[![Code Coverage](https://codecov.io/gh/localheinz/playground/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/playground)
+[![Type Coverage](https://shepherd.dev/github/localheinz/playground/coverage.svg)](https://shepherd.dev/github/localheinz/playground)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/playground/v/stable)](https://packagist.org/packages/localheinz/playground)
 [![Total Downloads](https://poser.pugx.org/localheinz/playground/downloads)](https://packagist.org/packages/localheinz/playground)
 

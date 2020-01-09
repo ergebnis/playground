@@ -1,4 +1,3 @@
-.github/        @localheinz
-.dependabot/    @localheinz
-src/            @localheinz
-test/           @localheinz
+*               @localheinz
+composer.json   @ergebnis-bot @localheinz
+composer.lock   @ergebnis-bot @localheinz

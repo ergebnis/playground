@@ -80,4 +80,4 @@ repository:
 
   # https://developer.github.com/v3/repos/branches/#remove-branch-protection
 
-  topics: "php, playground"
+  topics: "github, actions, php, playground"

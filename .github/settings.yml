@@ -32,8 +32,7 @@ branches:
           - "codecov/project"
         strict: false
       restrictions:
-        apps:
-          - "dependabot-preview"
+        apps: []
         teams: []
         users: []
 

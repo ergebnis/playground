@@ -1,16 +1,16 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
-on:
-  - push
+name: "Information (SSH)"
 
-name: "SSH Information"
+on:
+  - "push"
 
 jobs:
   php:
-    name: "SSH Information"
+    name: "Information (SSH)"
 
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
 
     steps:
       - name: "Location of ssh-agent"
-        run: echo $(which ssh-agent)
+        run: "echo $(which ssh-agent)"

@@ -1,53 +1,29 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
+name: "Continuous Deployment"
+
 on:
   push:
     tags:
       - "**"
 
-name: "Continuous Deployment"
-
 jobs:
-  create-release:
-    name: "Create release"
+  release:
+    name: "Release"
 
     runs-on: "ubuntu-latest"
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v2.0.0"
-
       - name: "Determine tag"
         id: "determine-tag"
         run: "echo \"::set-output name=tag::${GITHUB_REF#refs/tags/}\""
 
       - name: "Create release"
-        id: "create-release"
         uses: "actions/create-release@v1.0.0"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
-          tag_name: "${{ steps.determine-tag.outputs.tag }}"
-          release_name: "${{ steps.determine-tag.outputs.tag }}"
           draft: false
           prerelease: false
-
-      - name: "Upload Makefile"
-        uses: "actions/upload-release-asset@v1.0.1"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        with:
-          asset_content_type: "text/plain"
-          asset_name: "Makefile"
-          asset_path: "Makefile"
-          upload_url: "${{ steps.create-release.outputs.upload_url }}"
-
-      - name: "Upload phpstan.neon"
-        uses: "actions/upload-release-asset@v1.0.1"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        with:
-          asset_content_type: "text/plain"
-          asset_name: "phpstan.neon"
-          asset_path: "phpstan.neon"
-          upload_url: "${{ steps.create-release.outputs.upload_url }}"
+          release_name: "${{ steps.determine-tag.outputs.tag }}"
+          tag_name: "${{ steps.determine-tag.outputs.tag }}"

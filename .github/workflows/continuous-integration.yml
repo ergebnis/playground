@@ -359,7 +359,7 @@ jobs:
             const options = {
               owner: context.owner,
               repo: context.repo,
-              pull_number: context.event.number
+              pull_number: context.event.payload.number
             }
 
             github.pulls.deleteReviewRequest({

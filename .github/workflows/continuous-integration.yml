@@ -349,3 +349,29 @@ jobs:
         if: "(github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]') && github.event_name == 'pull_request' && startsWith(github.event.pull_request.title, 'Build(deps-dev)')"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+
+      - name: "Request review from @localheinz when necessary"
+        uses: "actions/github-script@0.4.0"
+        if: "(github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]') && github.event_name == 'pull_request' && !startsWith(github.event.pull_request.title, 'Build(deps-dev)')"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const options = {
+              owner: context.owner,
+              repo: context.repo,
+              pull_number: context.event.number
+            }
+
+            github.pulls.deleteReviewRequest({
+              ...options,
+              reviewers: [
+                'ergebnis-bot'
+              ]
+            })
+
+            github.pulls.createReviewRequest({
+              ...options,
+              reviewers: [
+                'localheinz'
+              ]
+            })

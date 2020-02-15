@@ -15,7 +15,7 @@
     "composer/semver": "^1.5.1"
   },
   "require-dev": {
-    "ergebnis/composer-normalize": "^2.2.2",
+    "ergebnis/composer-normalize": "^2.2.3",
     "ergebnis/php-cs-fixer-config": "^2.0.0",
     "ergebnis/phpstan-rules": "~0.14.3",
     "ergebnis/test-util": "~0.9.1",

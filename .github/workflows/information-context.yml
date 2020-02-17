@@ -43,3 +43,11 @@ jobs:
         run: "echo \"$MATRIX_CONTEXT\""
         env:
           MATRIX_CONTEXT: "${{ toJson(matrix) }}"
+
+      - name: "Dump env context"
+        run: "echo \"$ENV_CONTEXT\""
+        env:
+          MATRIX_CONTEXT: "${{ toJson(env) }}"
+
+      - name: Dump current environment variables
+        run: env

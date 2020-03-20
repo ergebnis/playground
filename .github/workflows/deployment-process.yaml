@@ -69,7 +69,7 @@ jobs:
           script: |
             const currentDeployment = context.payload.deployment
 
-            const { deployments: data } = await github.repos.listDeployments({
+            const { data: deployments } = await github.repos.listDeployments({
               environment: "${{ matrix.environment }}",
               owner: context.repo.owner,
               repo: context.repo.repo,

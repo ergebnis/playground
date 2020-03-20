@@ -32,7 +32,8 @@ jobs:
       - name: "Deploy"
         run: "sleep 5"
 
-      - name: "Mark deployment as success"
+      - name: "Mark deployment as failure"
+        if: "failure()"
         uses: "actions/github-script@0.8.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
@@ -40,8 +41,49 @@ jobs:
           script: |
             github.repos.createDeploymentStatus({
               deployment_id: context.payload.deployment.id,
-              log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "failure"
+            })
+
+      - name: "Mark deployment as success"
+        if: "success()"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          previews: "ant-man"
+          script: |
+            github.repos.createDeploymentStatus({
+              deployment_id: context.payload.deployment.id,
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: "success"
+            })
+
+      - name: "Mark previous deployments as inactive"
+        if: "success()"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          previews: "ant-man"
+          script: |
+            const currentDeployment = context.payload.deployment
+
+            const { deployments: data } = await github.repos.listDeployments({
+              environment: "${{ matrix.environment }}",
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+
+            deployments.forEach(deployment => {
+              if (deployment.id === currentDeployment.id) {
+                return
+              }
+
+              github.repos.createDeploymentStatus({
+                deployment_id: deployment.id,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: "inactive"
+              })
             })

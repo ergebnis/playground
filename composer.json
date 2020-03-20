@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": "^7.4",
     "composer/semver": "^1.5.1"
   },
   "require-dev": {
@@ -33,7 +33,7 @@
   },
   "config": {
     "platform": {
-      "php": "7.2.25"
+      "php": "7.4.3"
     },
     "preferred-install": "dist",
     "sort-packages": true

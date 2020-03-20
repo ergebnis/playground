@@ -14,11 +14,6 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
-    strategy:
-      matrix:
-        environment:
-          - "staging"
-
     if: "github.event.action == 'closed' || (github.event.action == 'unlabeled' && github.event.label.name == 'environment')"
 
     steps:
@@ -29,7 +24,7 @@ jobs:
           previews: "ant-man"
           script: |
             const { data: data } = await github.repos.listDeployments({
-              environment: "${{ matrix.environment }}",
+              environment: "staging",
               owner: context.repo.owner,
               repo: context.repo.repo,
             })

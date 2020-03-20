@@ -42,7 +42,16 @@ jobs:
               production_environment: false,
               ref: "${{ env.DEPLOY_SHA }}",
               repo: context.repo.repo,
-              required_contexts: [],
+              required_contexts: [
+                "Coding Standards (7.4, locked)",
+                "Dependency Analysis (7.4, locked)",
+                "Static Code Analysis (7.4, locked)",
+                "Tests (7.4, lowest)",
+                "Tests (7.4, locked)",
+                "Tests (7.4, highest)",
+                "Code Coverage (7.4, locked)",
+                "Mutation Tests (7.4, locked)"
+              ],
               task: "deploy",
               transient_environment: true,
             })

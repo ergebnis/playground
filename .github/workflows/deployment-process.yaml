@@ -1,0 +1,47 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+name: "Deployment"
+
+on: # yamllint disable-line rule:truthy
+  deployment: null
+
+jobs:
+  process:
+    name: "Process"
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Mark deployment as in progress"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          previews: "flash,ant-man"
+          script: |
+            github.repos.createDeploymentStatus({
+              deployment_id: context.payload.deployment.id,
+              log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "in_progress"
+            })
+
+      - name: "Deploy"
+        run: "sleep 5"
+
+      - name: "Mark deployment as success"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          previews: "ant-man"
+          script: |
+            github.repos.createDeploymentStatus({
+              deployment_id: context.payload.deployment.id,
+              log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "success"
+            })

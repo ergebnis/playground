@@ -23,13 +23,13 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
           script: |
-            const { data: data } = await github.repos.listDeployments({
+            const { deployments: data } = await github.repos.listDeployments({
               environment: "staging",
               owner: context.repo.owner,
               repo: context.repo.repo,
             })
 
-            data.forEach(deployment => {
+            deployments.forEach(deployment => {
               github.repos.createDeploymentStatus({
                 deployment_id: deployment.id,
                 owner: context.repo.owner,

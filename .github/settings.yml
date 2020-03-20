@@ -28,7 +28,6 @@ branches:
           - "Tests (7.4, highest)"
           - "Code Coverage (7.4, locked)"
           - "Mutation Tests (7.4, locked)"
-          - "Approve"
           - "codecov/patch"
           - "codecov/project"
         strict: false
@@ -39,27 +38,27 @@ branches:
 
 labels:
   - name: "bug"
-    color: "#ee0701"
+    color: "ee0701"
     description: ""
 
   - name: "dependency"
-    color: "#0366d6"
+    color: "0366d6"
     description: ""
 
   - name: "enhancement"
-    color: "#0e8a16"
+    color: "0e8a16"
     description: ""
 
   - name: "question"
-    color: "#cc317c"
+    color: "cc317c"
     description: ""
 
   - name: "security"
-    color: "#ee0701"
+    color: "ee0701"
     description: ""
 
   - name: "stale"
-    color: "#eeeeee"
+    color: "eeeeee"
     description: ""
 
 # https://developer.github.com/v3/repos/#edit
@@ -68,6 +67,7 @@ repository:
   allow_merge_commit: true
   allow_rebase_merge: false
   allow_squash_merge: false
+  archived: false
   default_branch: "master"
   delete_branch_on_merge: true
   description: ":basketball: A playground."

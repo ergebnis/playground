@@ -53,8 +53,13 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
           script: |
+            const currentDeployment = context.payload.deployment
+
+            const environmentUrl = currentDeployment.payload.environmentUrl || "";
+
             github.repos.createDeploymentStatus({
-              deployment_id: context.payload.deployment.id,
+              deployment_id: currentDeployment.id,
+              environment_url: currentDeployment.payload.environmentUrl,
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: "success"

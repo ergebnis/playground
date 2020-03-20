@@ -23,6 +23,7 @@ jobs:
           script: |
             github.repos.createDeploymentStatus({
               deployment_id: context.payload.deployment.id,
+              description: "Still working on it.",
               log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -40,6 +41,7 @@ jobs:
           script: |
             github.repos.createDeploymentStatus({
               deployment_id: context.payload.deployment.id,
+              description: "Finished!",
               log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
               owner: context.repo.owner,
               repo: context.repo.repo,

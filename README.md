@@ -1,9 +1,13 @@
 # playground
 
-[![Continuous Deployment](https://github.com/localheinz/playground/workflows/Continuous%20Deployment/badge.svg)](https://github.com/localheinz/playground/actions)
-[![Continuous Integration](https://github.com/localheinz/playground/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/playground/actions)
+[![Integrate](https://github.com/localheinz/playground/workflows/Integrate/badge.svg?branch=master)](https://github.com/localheinz/playground/actions)
+[![Prune](https://github.com/localheinz/playground/workflows/Prune/badge.svg?branch=master)](https://github.com/localheinz/playground/actions)
+[![Release](https://github.com/localheinz/playground/workflows/Release/badge.svg?branch=master)](https://github.com/localheinz/playground/actions)
+[![Renew](https://github.com/localheinz/playground/workflows/Renew/badge.svg?branch=master)](https://github.com/localheinz/playground/actions)
+
 [![Code Coverage](https://codecov.io/gh/localheinz/playground/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/playground)
 [![Type Coverage](https://shepherd.dev/github/localheinz/playground/coverage.svg)](https://shepherd.dev/github/localheinz/playground)
+
 [![Latest Stable Version](https://poser.pugx.org/localheinz/playground/v/stable)](https://packagist.org/packages/localheinz/playground)
 [![Total Downloads](https://poser.pugx.org/localheinz/playground/downloads)](https://packagist.org/packages/localheinz/playground)
 
@@ -36,3 +40,5 @@ Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 ## License
 
 This package is licensed using the MIT License.
+
+Please have a look at [`LICENSE.md`](LICENSE.md).

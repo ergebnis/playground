@@ -37,6 +37,9 @@ jobs:
               auto_merge: false,
               environment: "production",
               owner: context.repo.owner,
+              payload: {
+                environmentUrl: "https://localheinz.com",
+              },
               production_environment: true,
               ref: "${{ env.DEPLOY_SHA }}",
               repo: context.repo.repo,

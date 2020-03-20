@@ -49,6 +49,10 @@ labels:
     color: "0e8a16"
     description: ""
 
+  - name: "environment"
+    color: "6a737d"
+    description: ""
+
   - name: "question"
     color: "cc317c"
     description: ""

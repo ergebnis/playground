@@ -1,53 +1,11 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
-name: "Inform"
+name: "System"
 
 on: # yamllint disable-line rule:truthy
-  - "pull_request"
   - "push"
 
 jobs:
-  context:
-    name: "Context"
-
-    runs-on: "ubuntu-latest"
-
-    steps:
-      - name: "Dump env context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(env) }}"
-
-      - name: "Dump github context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(github) }}"
-
-      - name: "Dump job context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(job) }}"
-
-      - name: "Dump matrix context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(matrix) }}"
-
-      - name: "Dump runner context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(runner) }}"
-
-      - name: "Dump steps context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(steps) }}"
-
-      - name: "Dump strategy context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(strategy) }}"
-
   js:
     name: "JS"
 

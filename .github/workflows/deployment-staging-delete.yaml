@@ -1,0 +1,44 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+name: "Deployment"
+
+on: # yamllint disable-line rule:truthy
+  pull_request:
+    types:
+      - "closed"
+      - "unlabeled"
+
+jobs:
+  delete:
+    name: "Delete"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        environment:
+          - "staging"
+
+    if: "github.event.action == 'closed' || (github.event.action == 'unlabeled' && github.event.label.name == 'environment')"
+
+    steps:
+      - name: "Mark deployment as inactive"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          previews: "ant-man"
+          script: |
+            const { data: data } = await github.repos.listDeployments({
+              environment: "${{ matrix.environment }}",
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+
+            data.forEach(deployment => {
+              github.repos.createDeploymentStatus({
+                deployment_id: deployment.id,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: "inactive"
+              })
+            })

@@ -15,7 +15,7 @@ namespace Localheinz\Playground;
 
 final class Example
 {
-    private $name;
+    private string $name;
 
     private function __construct(string $name)
     {

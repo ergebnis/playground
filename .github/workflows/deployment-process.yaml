@@ -19,7 +19,7 @@ jobs:
         uses: "actions/github-script@0.8.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          previews: "flash,ant-man"
+          previews: "ant-man,flash"
           script: |
             github.repos.createDeploymentStatus({
               deployment_id: context.payload.deployment.id,

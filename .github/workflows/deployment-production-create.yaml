@@ -17,7 +17,6 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2"
         with:
-          fetch-depth: 0
           ref: "${{ github.sha }}"
 
       - name: "Determine name of branch to deploy"

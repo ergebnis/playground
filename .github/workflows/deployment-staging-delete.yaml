@@ -34,6 +34,7 @@ jobs:
             deployments.forEach(deployment => {
               github.repos.createDeploymentStatus({
                 deployment_id: deployment.id,
+                log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${deployment.sha}/checks`,
                 owner: repository.owner,
                 repo: repository.repo,
                 state: "inactive"

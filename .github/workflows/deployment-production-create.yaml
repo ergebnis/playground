@@ -31,17 +31,19 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
           script: |
+            const repository = context.repo
+
             github.repos.createDeployment({
               auto_inactive: true,
               auto_merge: false,
               environment: "production",
-              owner: context.repo.owner,
+              owner: repository.owner,
               payload: {
                 environmentUrl: "https://localheinz.com",
               },
               production_environment: true,
               ref: "${{ env.DEPLOY_SHA }}",
-              repo: context.repo.repo,
+              repo: repository.repo,
               required_contexts: [],
               task: "deploy",
               transient_environment: false,

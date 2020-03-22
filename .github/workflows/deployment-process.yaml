@@ -23,7 +23,7 @@ jobs:
           script: |
             github.repos.createDeploymentStatus({
               deployment_id: context.payload.deployment.id,
-              log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
+              log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${context.payload.deployment.sha}/checks`,
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: "in_progress"
@@ -41,7 +41,7 @@ jobs:
           script: |
             github.repos.createDeploymentStatus({
               deployment_id: context.payload.deployment.id,
-              log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
+              log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${context.payload.deployment.sha}/checks`,
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: "failure"
@@ -59,7 +59,7 @@ jobs:
             github.repos.createDeploymentStatus({
               deployment_id: deployment.id,
               environment_url: deployment.payload.environmentUrl || "",
-              log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
+              log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${context.payload.deployment.sha}/checks`,
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: "success"
@@ -87,7 +87,7 @@ jobs:
 
               github.repos.createDeploymentStatus({
                 deployment_id: previousDeployment.id,
-                log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + previousDeployment.sha + "/checks",
+                log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${previousDeployment.sha}/checks`,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 state: "inactive"

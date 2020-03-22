@@ -23,10 +23,12 @@ jobs:
         with:
           ref: "${{ github.head_ref }}"
 
-      - name: "Determine SHA of commit to deploy"
-        run: "echo ::set-env name=DEPLOY_SHA::$(git rev-parse --short --verify HEAD)"
+      - name: "Determine deployment parameters"
+        run: |
+          echo ::set-env name=DEPLOYMENT_REFERENCE::${{ github.head_ref }}
+          echo ::set-env name=DEPLOYMENT_SHA::$(git rev-parse --short --verify HEAD)
 
-      - name: "Create deployment for staging environment based on branch \"${{ github.head_ref }}\" and commit \"${{ env.DEPLOY_SHA }}\""
+      - name: "Create deployment for staging environment based on reference \"${{ env.DEPLOYMENT_REFERENCE }}\" and commit \"${{ env.DEPLOYMENT_SHA }}\""
         uses: "actions/github-script@0.8.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
@@ -43,7 +45,7 @@ jobs:
                 environmentUrl: "https://staging.localheinz.com",
               },
               production_environment: false,
-              ref: "${{ env.DEPLOY_SHA }}",
+              ref: "${{ env.DEPLOYMENT_REFERENCE }}",
               repo: repository.repo,
               required_contexts: [],
               task: "deploy",

@@ -60,7 +60,7 @@ jobs:
 
             github.repos.createDeploymentStatus({
               deployment_id: currentDeployment.id,
-              environment_url: currentDeployment.payload.environmentUrl,
+              environment_url: environmentUrl,
               log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
               owner: context.repo.owner,
               repo: context.repo.repo,

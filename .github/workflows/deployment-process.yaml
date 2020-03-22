@@ -89,6 +89,7 @@ jobs:
 
               github.repos.createDeploymentStatus({
                 deployment_id: deployment.id,
+                log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + deployment.sha + "/checks",
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 state: "inactive"

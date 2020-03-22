@@ -54,12 +54,12 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
           script: |
-            const currentDeployment = context.payload.deployment
+            const deployment = context.payload.deployment
 
-            const environmentUrl = currentDeployment.payload.environmentUrl || "";
+            const environmentUrl = deployment.payload.environmentUrl || "";
 
             github.repos.createDeploymentStatus({
-              deployment_id: currentDeployment.id,
+              deployment_id: deployment.id,
               environment_url: environmentUrl,
               log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
               owner: context.repo.owner,
@@ -74,21 +74,21 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
           script: |
-            const currentDeployment = context.payload.deployment
+            const deployment = context.payload.deployment
 
-            const { data: deployments } = await github.repos.listDeployments({
-              environment: currentDeployment.environment,
+            const { data: previousDeployments } = await github.repos.listDeployments({
+              environment: deployment.environment,
               owner: context.repo.owner,
               repo: context.repo.repo,
             })
 
-            deployments.forEach(deployment => {
-              if (deployment.id === currentDeployment.id) {
+            previousDeployments.forEach(previousDeployment => {
+              if (previousDeployment.id === deployment.id) {
                 return
               }
 
               github.repos.createDeploymentStatus({
-                deployment_id: deployment.id,
+                deployment_id: previousDeployment.id,
                 log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + deployment.sha + "/checks",
                 owner: context.repo.owner,
                 repo: context.repo.repo,

@@ -56,11 +56,9 @@ jobs:
           script: |
             const deployment = context.payload.deployment
 
-            const environmentUrl = deployment.payload.environmentUrl || "";
-
             github.repos.createDeploymentStatus({
               deployment_id: deployment.id,
-              environment_url: environmentUrl,
+              environment_url: deployment.payload.environmentUrl || "",
               log_url: "https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/commit/" + context.payload.deployment.sha + "/checks",
               owner: context.repo.owner,
               repo: context.repo.repo,

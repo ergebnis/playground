@@ -7,6 +7,9 @@ on: # yamllint disable-line rule:truthy
     branches:
       - "master"
 
+env:
+  DEPLOYMENT_ENVIRONMENT: "production"
+
 jobs:
   create:
     name: "Create"
@@ -14,35 +17,25 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v2"
-        with:
-          ref: "${{ github.sha }}"
-
-      - name: "Determine name of branch to deploy"
-        run: "echo ::set-env name=DEPLOY_BRANCH::$(echo ${GITHUB_REF#refs/heads/})"
-
-      - name: "Determine SHA of commit to deploy"
-        run: "echo ::set-env name=DEPLOY_SHA::$(git rev-parse --short --verify HEAD)"
-
-      - name: "Create deployment for production environment based on branch \"${{ env.DEPLOY_BRANCH }}\" and commit \"${{ env.DEPLOY_SHA }}\""
+      - name: "Create deployment for environment \"${{ env.DEPLOYMENT_ENVIRONMENT}}\""
         uses: "actions/github-script@0.8.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
           script: |
+            const push = context.payload
             const repository = context.repo
 
             github.repos.createDeployment({
               auto_inactive: true,
               auto_merge: false,
-              environment: "production",
+              environment: "${{ env.DEPLOYMENT_ENVIRONMENT }}",
               owner: repository.owner,
               payload: {
                 environmentUrl: "https://localheinz.com",
               },
               production_environment: true,
-              ref: "${{ env.DEPLOY_SHA }}",
+              ref: push.after,
               repo: repository.repo,
               required_contexts: [],
               task: "deploy",

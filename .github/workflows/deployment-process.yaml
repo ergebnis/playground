@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2"
+        with:
+          ref: "${{ github.event.deployment.sha }}"
 
       - name: "Mark deployment as in progress"
         uses: "actions/github-script@0.8.0"
@@ -29,7 +31,7 @@ jobs:
               log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${deployment.sha}/checks`,
               owner: repository.owner,
               repo: repository.repo,
-              state: "in_progress"
+              state: "in_progress",
             })
 
       - name: "Deploy"
@@ -50,7 +52,7 @@ jobs:
               log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${deployment.sha}/checks`,
               owner: repository.owner,
               repo: repository.repo,
-              state: "failure"
+              state: "failure",
             })
 
       - name: "Mark deployment as success"
@@ -69,7 +71,7 @@ jobs:
               log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${deployment.sha}/checks`,
               owner: repository.owner,
               repo: repository.repo,
-              state: "success"
+              state: "success",
             })
 
       - name: "Mark previous deployments as inactive"

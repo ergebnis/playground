@@ -9,6 +9,9 @@ on: # yamllint disable-line rule:truthy
       - "reopened"
       - "synchronize"
 
+env:
+  DEPLOYMENT_ENVIRONMENT: "staging"
+
 jobs:
   create:
     name: "Create"
@@ -18,32 +21,25 @@ jobs:
     if: "((github.event.action == 'reopened' || github.event.action == 'synchronize') && contains(github.event.pull_request.labels.*.name, 'environment')) || (github.event.action == 'labeled' &&  github.event.label.name == 'environment')"
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v2"
-        with:
-          ref: "${{ github.head_ref }}"
-
-      - name: "Determine SHA of commit to deploy"
-        run: "echo ::set-env name=DEPLOY_SHA::$(git rev-parse --short --verify HEAD)"
-
-      - name: "Create deployment for staging environment based on branch \"${{ github.head_ref }}\" and commit \"${{ env.DEPLOY_SHA }}\""
+      - name: "Create deployment for \"${{ env.DEPLOYMENT_ENVIRONMENT }}\" environment"
         uses: "actions/github-script@0.8.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
           script: |
+            const pullRequest = context.payload.pull_request
             const repository = context.repo
 
             github.repos.createDeployment({
               auto_inactive: true,
               auto_merge: false,
-              environment: "staging",
+              environment: "${{ env.DEPLOYMENT_ENVIRONMENT }}",
               owner: repository.owner,
               payload: {
                 environmentUrl: "https://staging.localheinz.com",
               },
               production_environment: false,
-              ref: "${{ env.DEPLOY_SHA }}",
+              ref: pullRequest.head.ref,
               repo: repository.repo,
               required_contexts: [],
               task: "deploy",

@@ -21,11 +21,14 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man,flash"
           script: |
+            const deployment = context.payload.deployment
+            const repository = context.repo
+
             github.repos.createDeploymentStatus({
-              deployment_id: context.payload.deployment.id,
-              log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${context.payload.deployment.sha}/checks`,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+              deployment_id: deployment.id,
+              log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${deployment.sha}/checks`,
+              owner: repository.owner,
+              repo: repository.repo,
               state: "in_progress"
             })
 
@@ -39,11 +42,14 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
           script: |
+            const deployment = context.payload.deployment
+            const repository = context.repo
+
             github.repos.createDeploymentStatus({
-              deployment_id: context.payload.deployment.id,
-              log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${context.payload.deployment.sha}/checks`,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+              deployment_id: deployment.id,
+              log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${deployment.sha}/checks`,
+              owner: repository.owner,
+              repo: repository.repo,
               state: "failure"
             })
 
@@ -55,13 +61,14 @@ jobs:
           previews: "ant-man"
           script: |
             const deployment = context.payload.deployment
+            const repository = context.repo
 
             github.repos.createDeploymentStatus({
               deployment_id: deployment.id,
               environment_url: deployment.payload.environmentUrl || "",
-              log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${context.payload.deployment.sha}/checks`,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+              log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${deployment.sha}/checks`,
+              owner: repository.owner,
+              repo: repository.repo,
               state: "success"
             })
 
@@ -73,11 +80,12 @@ jobs:
           previews: "ant-man"
           script: |
             const deployment = context.payload.deployment
+            const repository = context.repo
 
             const { data: previousDeployments } = await github.repos.listDeployments({
               environment: deployment.environment,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+              owner: repository.owner,
+              repo: repository.repo,
             })
 
             previousDeployments.forEach(previousDeployment => {
@@ -87,9 +95,9 @@ jobs:
 
               github.repos.createDeploymentStatus({
                 deployment_id: previousDeployment.id,
-                log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${previousDeployment.sha}/checks`,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
+                log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${previousDeployment.sha}/checks`,
+                owner: repository.owner,
+                repo: repository.repo,
                 state: "inactive"
               })
             })

@@ -28,18 +28,25 @@ jobs:
           script: |
             const repository = context.repo
 
-            const { data: deployments } = await github.repos.listDeployments({
+            const options = github.repos.listDeployments.endpoint.merge({
               environment: "${{ env.DEPLOYMENT_ENVIRONMENT }}",
               owner: repository.owner,
+              per_page: 100,
               repo: repository.repo,
             })
 
-            deployments.forEach(deployment => {
-              github.repos.createDeploymentStatus({
-                deployment_id: deployment.id,
-                log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${deployment.sha}/checks`,
+            const previousDeployments = await github.paginate(options)
+
+            for (const previousDeployment of previousDeployments) {
+              if (previousDeployment.state == "inactive") {
+                continue
+              }
+
+              await github.repos.createDeploymentStatus({
+                deployment_id: previousDeployment.id,
+                log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${previousDeployment.sha}/checks`,
                 owner: repository.owner,
                 repo: repository.repo,
                 state: "inactive",
               })
-            })
+            }

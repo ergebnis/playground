@@ -83,11 +83,11 @@ jobs:
             const pullRequest = context.payload.pull_request
             const repository = context.repo
 
-            const reviewComments = await github.pulls.listComments({
+            const { data: comments } = await github.pulls.listComments({
               owner: repository.owner,
               per_page: 100,
               pull_number: pullRequest.number,
               repo: repository.repo,
             })
 
-            console.log(reviewComments)
+            console.log(comments)

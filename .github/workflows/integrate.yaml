@@ -91,9 +91,3 @@ jobs:
             })
 
             console.log(reviewComments)
-
-            for (const reviewComment of reviewComments) {
-              if (reviewComment.state == "CHANGES_REQUESTED") {
-                throw new Error("Can not merge pull request when changes have been requested.")
-              }
-            }

@@ -427,10 +427,10 @@ jobs:
             ]
 
             await github.pulls.createReviewRequest({
-                owner: repository.owner,
-                pull_number: pullRequest.number,
-                repo: repository.repo,
-                reviewers: reviewers,
+              owner: repository.owner,
+              pull_number: pullRequest.number,
+              repo: repository.repo,
+              reviewers: reviewers,
             })
 
       - name: "Approve pull request"

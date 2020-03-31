@@ -20,74 +20,23 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      - name: "Assign @ergebnis-bot"
-        uses: "actions/github-script@0.8.0"
-        with:
-          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          script: |
-            const pullRequest = context.payload.pull_request
-            const repository = context.repo
-
-            const reviewers = [
-              "ergebnis-bot",
-            ]
-
-            await github.issues.addAssignees({
-              assignees: reviewers,
-              issue_number: pullRequest.number,
-              owner: repository.owner,
-              repo: repository.repo,
-            })
-
-      - name: "Request review from @ergebnis-bot"
-        uses: "actions/github-script@0.8.0"
-        with:
-          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          script: |
-            const pullRequest = context.payload.pull_request
-            const repository = context.repo
-
-            const reviewers = [
-              "ergebnis-bot",
-            ]
-
-            await github.pulls.createReviewRequest({
-              owner: repository.owner,
-              pull_number: pullRequest.number,
-              repo: repository.repo,
-              reviewers: reviewers,
-            })
-
-      - name: "Request changes"
-        uses: "actions/github-script@0.8.0"
-        with:
-          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          script: |
-            const pullRequest = context.payload.pull_request
-            const repository = context.repo
-
-            await github.pulls.createReview({
-              body: "I do not like it, really!",
-              event: "REQUEST_CHANGES",
-              owner: repository.owner,
-              pull_number: pullRequest.number,
-              repo: repository.repo,
-            })
-
-      - name: "Approve and merge pull request"
+      - name: "List comments"
         uses: "actions/github-script@0.8.0"
         if: "github.actor != 'ergebnis-bot'"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          previews: "comfort-fade"
           script: |
             const pullRequest = context.payload.pull_request
             const repository = context.repo
 
-            const { data: comments } = await github.pulls.listComments({
+            const response = await github.pulls.listComments({
               owner: repository.owner,
+              page: 1,
               per_page: 100,
               pull_number: pullRequest.number,
               repo: repository.repo,
+              since: pullRequest.created_at,
             })
 
-            console.log(comments)
+            console.log(response)

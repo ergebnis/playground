@@ -6,6 +6,7 @@ on: # yamllint disable-line rule:truthy
   pull_request:
     types:
       - "opened"
+      - "synchronize"
 
 jobs:
   label:
@@ -16,6 +17,7 @@ jobs:
     steps:
       - name: "Add labels based on branch name"
         uses: "actions/github-script@0.8.0"
+        if: "github.event.action == 'opened'"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
@@ -44,3 +46,21 @@ jobs:
                 repo: repository.repo,
               });
             }
+
+      - name: "Add labels based on commit message"
+        if: "github.event.action == 'synchronize'"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.pull_request
+            const repository = context.repo
+
+            const commits = await github.repos.listCommits({
+              owner: repository.owner,
+              per_page: 10,
+              pull_number: pullRequest.number,
+              repo: repository.repo,
+            })
+
+            console.log(commits)

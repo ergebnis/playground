@@ -18,7 +18,7 @@ jobs:
           ref: "${{ github.event.deployment.sha }}"
 
       - name: "Mark deployment as in progress"
-        uses: "actions/github-script@0.8.0"
+        uses: "actions/github-script@v2"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man,flash"
@@ -39,7 +39,7 @@ jobs:
 
       - name: "Mark deployment as failure"
         if: "failure()"
-        uses: "actions/github-script@0.8.0"
+        uses: "actions/github-script@v2"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
@@ -57,7 +57,7 @@ jobs:
 
       - name: "Mark deployment as success"
         if: "success()"
-        uses: "actions/github-script@0.8.0"
+        uses: "actions/github-script@v2"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"
@@ -76,7 +76,7 @@ jobs:
 
       - name: "Mark previous deployments as inactive"
         if: "success()"
-        uses: "actions/github-script@0.8.0"
+        uses: "actions/github-script@v2"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"

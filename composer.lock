@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d21625e740e4c0d27b3c3aac3e4b298",
+    "content-hash": "eec09a584dc7bce37f1df82d264a78d2",
     "packages": [
         {
             "name": "composer/semver",
@@ -2328,16 +2328,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "7462d5f123dfc080dfdf26897032a6513644fc95"
+                "reference": "30441f2752e493c639526b215ed81d54f369d693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/7462d5f123dfc080dfdf26897032a6513644fc95",
-                "reference": "7462d5f123dfc080dfdf26897032a6513644fc95",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30441f2752e493c639526b215ed81d54f369d693",
+                "reference": "30441f2752e493c639526b215ed81d54f369d693",
                 "shasum": ""
             },
             "require": {
@@ -2351,7 +2351,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-1.x": "1.x-dev"
                 }
             },
             "autoload": {
@@ -2370,7 +2370,7 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "time": "2020-02-18T18:59:58+00:00"
+            "time": "2020-06-19T20:22:09+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -2991,16 +2991,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "cdc0db5aed8fbfaf475fbd95bfd7bab83c7a779c"
+                "reference": "e61c593e9734b47ef462340c24fca8d6a57da14e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/cdc0db5aed8fbfaf475fbd95bfd7bab83c7a779c",
-                "reference": "cdc0db5aed8fbfaf475fbd95bfd7bab83c7a779c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/e61c593e9734b47ef462340c24fca8d6a57da14e",
+                "reference": "e61c593e9734b47ef462340c24fca8d6a57da14e",
                 "shasum": ""
             },
             "require": {
@@ -3042,20 +3042,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-05-06T09:56:31+00:00"
+            "time": "2020-06-16T07:00:44+00:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.2.3",
+            "version": "9.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c1b1d62095ef78427f112a7a1c1502d4607e3c00"
+                "reference": "f4e572558c603d5f2a8499b8b9ce310a5af42a44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c1b1d62095ef78427f112a7a1c1502d4607e3c00",
-                "reference": "c1b1d62095ef78427f112a7a1c1502d4607e3c00",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f4e572558c603d5f2a8499b8b9ce310a5af42a44",
+                "reference": "f4e572558c603d5f2a8499b8b9ce310a5af42a44",
                 "shasum": ""
             },
             "require": {
@@ -3140,7 +3140,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-15T10:51:34+00:00"
+            "time": "2020-06-21T06:38:49+00:00"
         },
         {
             "name": "psalm/plugin-phpunit",
@@ -3496,16 +3496,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "1de7b33e1d1fa4a58cb29b295c6e3349d73a6c4e"
+                "reference": "266d85ef789da8c41f06af4093c43e9798af2784"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1de7b33e1d1fa4a58cb29b295c6e3349d73a6c4e",
-                "reference": "1de7b33e1d1fa4a58cb29b295c6e3349d73a6c4e",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/266d85ef789da8c41f06af4093c43e9798af2784",
+                "reference": "266d85ef789da8c41f06af4093c43e9798af2784",
                 "shasum": ""
             },
             "require": {
@@ -3562,7 +3562,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-15T13:14:18+00:00"
+            "time": "2020-06-15T15:04:48+00:00"
         },
         {
             "name": "sebastian/diff",

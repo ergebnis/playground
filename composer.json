@@ -1,8 +1,8 @@
 {
-  "name": "localheinz/playground",
+  "name": "ergebnis/playground",
   "type": "library",
   "description": "Provides a GitHub repository template for a PHP library.",
-  "homepage": "https://github.com/localheinz/playground",
+  "homepage": "https://github.com/ergebnis/playground",
   "license": "MIT",
   "authors": [
     {
@@ -40,16 +40,16 @@
   },
   "autoload": {
     "psr-4": {
-      "Localheinz\\Playground\\": "src/"
+      "Ergebnis\\Playground\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Localheinz\\Playground\\Test\\": "test/"
+      "Ergebnis\\Playground\\Test\\": "test/"
     }
   },
   "support": {
-    "issues": "https://github.com/localheinz/playground/issues",
-    "source": "https://github.com/localheinz/playground"
+    "issues": "https://github.com/ergebnis/playground/issues",
+    "source": "https://github.com/ergebnis/playground"
   }
 }

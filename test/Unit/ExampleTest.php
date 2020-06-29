@@ -8,19 +8,19 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/playground
+ * @see https://github.com/ergebnis/playground
  */
 
-namespace Localheinz\Playground\Test\Unit;
+namespace Ergebnis\Playground\Test\Unit;
 
+use Ergebnis\Playground\Example;
 use Ergebnis\Test\Util\Helper;
-use Localheinz\Playground\Example;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Localheinz\Playground\Example
+ * @covers \Ergebnis\Playground\Example
  */
 final class ExampleTest extends Framework\TestCase
 {

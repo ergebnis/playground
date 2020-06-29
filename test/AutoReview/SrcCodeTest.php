@@ -8,10 +8,10 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/playground
+ * @see https://github.com/ergebnis/playground
  */
 
-namespace Localheinz\Playground\Test\AutoReview;
+namespace Ergebnis\Playground\Test\AutoReview;
 
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
@@ -29,8 +29,8 @@ final class SrcCodeTest extends Framework\TestCase
     {
         self::assertClassesHaveTests(
             __DIR__ . '/../../src',
-            'Localheinz\\Playground\\',
-            'Localheinz\\Playground\\Test\\Unit\\'
+            'Ergebnis\\Playground\\',
+            'Ergebnis\\Playground\\Test\\Unit\\'
         );
     }
 }

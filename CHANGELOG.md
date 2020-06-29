@@ -8,4 +8,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1640fd1...master`][1640fd1...master].
 
-[1640fd1...master]: https://github.com/localheinz/playground/compare/1640fd1...master
+[1640fd1...master]: https://github.com/ergebnis/playground/compare/1640fd1...master

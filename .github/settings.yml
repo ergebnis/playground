@@ -23,7 +23,17 @@ branches:
           - "Tests (7.4, locked)"
           - "Tests (7.4, lowest)"
         strict: false
-      restrictions: null
+      restrictions:
+
+        # https://developer.github.com/v3/repos/branches/#parameters-1
+
+        # Note: User, app, and team restrictions are only available for organization-owned repositories.
+        # Set to null to disable when using this configuration for a repository on a personal account.
+
+        apps: []
+        teams: []
+        users:
+          - "ergebnis-bot"
 
 # https://developer.github.com/v3/issues/labels/#create-a-label
 # https://developer.github.com/v3/issues/labels/#update-a-label

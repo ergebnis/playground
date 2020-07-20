@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: "Create deployment for environment \"${{ env.DEPLOYMENT_ENVIRONMENT}}\""
-        uses: "actions/github-script@v2"
+        uses: "actions/github-script@v2.0.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"

@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: "Mark deployment for environment \"${{ env.DEPLOYMENT_ENVIRONMENT}}\" as inactive"
-        uses: "actions/github-script@v2.0.0"
+        uses: actions/github-script@v2.0.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"

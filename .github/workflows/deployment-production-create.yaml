@@ -5,7 +5,7 @@ name: "Deployment"
 on: # yamllint disable-line rule:truthy
   push:
     branches:
-      - "main"
+      - "{{ $default-branch }}"
 
 env:
   DEPLOYMENT_ENVIRONMENT: "production"

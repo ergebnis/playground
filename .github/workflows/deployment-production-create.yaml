@@ -5,7 +5,7 @@ name: "Deployment"
 on: # yamllint disable-line rule:truthy
   push:
     branches:
-      - "{{ $default-branch }}"
+      - $default-branch # yamllint disable-line rule:quoted-strings
 
 env:
   DEPLOYMENT_ENVIRONMENT: "production"

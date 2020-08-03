@@ -6,7 +6,7 @@ on: # yamllint disable-line rule:truthy
   pull_request: null
   push:
     branches:
-      - "main"
+      - "{{ $default-branch }}"
 
 env:
   MIN_COVERED_MSI: 100

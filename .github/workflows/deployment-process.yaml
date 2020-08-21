@@ -66,6 +66,7 @@ jobs:
             const repository = context.repo
 
             github.repos.createDeploymentStatus({
+              auto_inactive: true,
               deployment_id: deployment.id,
               environment_url: deployment.payload.environmentUrl || "",
               log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${deployment.sha}/checks`,
@@ -73,40 +74,3 @@ jobs:
               repo: repository.repo,
               state: "success",
             })
-
-      - name: "Mark previous deployments as inactive"
-        if: "success()"
-        uses: "actions/github-script@v2.0.1"
-        with:
-          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          previews: "ant-man"
-          script: |
-            const deployment = context.payload.deployment
-            const repository = context.repo
-
-            const options = github.repos.listDeployments.endpoint.merge({
-              environment: deployment.environment,
-              owner: repository.owner,
-              per_page: 100,
-              repo: repository.repo,
-            })
-
-            const previousDeployments = await github.paginate(options)
-
-            for (const previousDeployment of previousDeployments) {
-              if (previousDeployment.id === deployment.id) {
-                continue
-              }
-
-              if (previousDeployment.state == "inactive") {
-                continue
-              }
-
-              await github.repos.createDeploymentStatus({
-                deployment_id: previousDeployment.id,
-                log_url: `https://github.com/${repository.owner}/${repository.repo}/commit/${previousDeployment.sha}/checks`,
-                owner: repository.owner,
-                repo: repository.repo,
-                state: "inactive",
-              })
-            }

@@ -9,6 +9,7 @@ on: # yamllint disable-line rule:truthy
       - "main"
 
 env:
+  ERGEBNIS_BOT_EMAIL: "bot@ergebn.is"
   ERGEBNIS_BOT_NAME: "ergebnis-bot"
   MIN_COVERED_MSI: 100
   MIN_MSI: 100
@@ -78,7 +79,17 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
 
       - name: "Run friendsofphp/php-cs-fixer"
-        run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose"
+        run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --verbose"
+
+      - name: "Commit files fixed with friendsofphp/php-cs-fixer"
+        uses: "stefanzweifel/git-auto-commit-action@v4.4.1"
+        with:
+          branch: "${{ github.head_ref }}"
+          commit_author: "${{ env.ERGEBNIS_BOT_NAME }} <${{ env.ERGEBNIS_BOT_EMAIL }}>"
+          commit_message: "Fix: Run 'php-cs-fixer fix'"
+          commit_user_email: "${{ env.ERGEBNIS_BOT_EMAIL }}"
+          commit_user_name: "${{ env.ERGEBNIS_BOT_NAME }}"
+          file_pattern: "src/*.php test/*.php"
 
   dependency-analysis:
     name: "Dependency Analysis"

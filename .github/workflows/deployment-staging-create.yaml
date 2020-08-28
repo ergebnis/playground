@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: "Create deployment for \"${{ env.DEPLOYMENT_ENVIRONMENT }}\" environment"
-        uses: "actions/github-script@v2.0.1"
+        uses: "actions/github-script@v3.0.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           previews: "ant-man"

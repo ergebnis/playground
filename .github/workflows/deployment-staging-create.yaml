@@ -1,4 +1,4 @@
-# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+# https://docs.github.com/en/actions
 
 name: "Deployment"
 
@@ -18,7 +18,16 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
-    if: "((github.event.action == 'reopened' || github.event.action == 'synchronize') && contains(github.event.pull_request.labels.*.name, 'environment')) || (github.event.action == 'labeled' &&  github.event.label.name == 'environment')"
+    if: |
+      (
+        (
+          github.event.action == 'reopened' ||
+          github.event.action == 'synchronize'
+        ) && contains(github.event.pull_request.labels.*.name, 'environment')
+      ) || (
+        github.event.action == 'labeled' &&
+        github.event.label.name == 'environment'
+      )
 
     steps:
       - name: "Create deployment for \"${{ env.DEPLOYMENT_ENVIRONMENT }}\" environment"

@@ -15,20 +15,19 @@
     "composer/semver": "^1.5.1"
   },
   "require-dev": {
-    "ergebnis/composer-normalize": "^2.7.1",
+    "ergebnis/composer-normalize": "^2.8.1",
     "ergebnis/license": "^1.1.0",
-    "ergebnis/php-cs-fixer-config": "^2.2.1",
+    "ergebnis/php-cs-fixer-config": "^2.2.2",
     "ergebnis/phpstan-rules": "~0.15.2",
     "ergebnis/test-util": "^1.1.0",
-    "infection/infection": "~0.17.3",
+    "infection/infection": "~0.17.5",
     "jangregor/phpstan-prophecy": "~0.8.0",
-    "phpstan/extension-installer": "^1.0.4",
+    "phpstan/extension-installer": "^1.0.5",
     "phpstan/phpstan": "~0.12.40",
     "phpstan/phpstan-deprecation-rules": "~0.12.5",
     "phpstan/phpstan-phpunit": "~0.12.16",
-    "phpstan/phpstan-strict-rules": "~0.12.4",
+    "phpstan/phpstan-strict-rules": "~0.12.5",
     "phpunit/phpunit": "^9.3.8",
-    "psalm/plugin-phpunit": "~0.11.0",
     "vimeo/psalm": "^3.14.2"
   },
   "config": {

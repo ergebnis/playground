@@ -1526,16 +1526,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.19.0",
+            "version": "0.19.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "e28e9ed25217dd8a9f5ffb480347ba96e3a39d3f"
+                "reference": "46c17a7fdba19ad05bec7b10e006ce2f00d954a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/e28e9ed25217dd8a9f5ffb480347ba96e3a39d3f",
-                "reference": "e28e9ed25217dd8a9f5ffb480347ba96e3a39d3f",
+                "url": "https://api.github.com/repos/infection/infection/zipball/46c17a7fdba19ad05bec7b10e006ce2f00d954a1",
+                "reference": "46c17a7fdba19ad05bec7b10e006ce2f00d954a1",
                 "shasum": ""
             },
             "require": {
@@ -1577,7 +1577,8 @@
                 "phpunit/phpunit": "^9.3.11",
                 "symfony/phpunit-bridge": "^4.4.14 || ^5.1.6",
                 "symfony/yaml": "^5.0",
-                "thecodingmachine/phpstan-safe-rule": "^1.0"
+                "thecodingmachine/phpstan-safe-rule": "^1.0",
+                "vimeo/psalm": "^4.0"
             },
             "bin": [
                 "bin/infection"
@@ -1631,7 +1632,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2020-10-27T23:18:49+00:00"
+            "time": "2020-10-28T09:21:52+00:00"
         },
         {
             "name": "jangregor/phpstan-prophecy",
@@ -5584,16 +5585,16 @@
         },
         {
             "name": "thecodingmachine/safe",
-            "version": "v1.3.2",
+            "version": "v1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/safe.git",
-                "reference": "72d9fee55e14e07a6283c9b3e28c09e85923a148"
+                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/72d9fee55e14e07a6283c9b3e28c09e85923a148",
-                "reference": "72d9fee55e14e07a6283c9b3e28c09e85923a148",
+                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
+                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
                 "shasum": ""
             },
             "require": {
@@ -5715,7 +5716,7 @@
                 "MIT"
             ],
             "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
-            "time": "2020-10-22T09:17:04+00:00"
+            "time": "2020-10-28T17:51:34+00:00"
         },
         {
             "name": "theseer/tokenizer",

@@ -11,8 +11,7 @@
     }
   ],
   "require": {
-    "php": "^7.4",
-    "composer/semver": "^1.7.0"
+    "php": "^7.4"
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.9.0",

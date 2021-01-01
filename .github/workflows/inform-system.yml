@@ -34,6 +34,7 @@ jobs:
           - "php7.2"
           - "php7.3"
           - "php7.4"
+          - "php8.0"
 
     steps:
       - name: "Show location of PHP binary"

@@ -3,8 +3,8 @@
 name: "Integrate"
 
 on: # yamllint disable-line rule:truthy
-  workflow_run: null
-  workflows:
+  workflow_run:
+    workflows:
       - "Integrate"
     types:
       - "completed"
@@ -18,43 +18,43 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
-  context:
-    name: "Context"
+    context:
+      name: "Context"
 
-    runs-on: "ubuntu-latest"
+      runs-on: "ubuntu-latest"
 
-    steps:
-      - name: "Dump env context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(env) }}"
+      steps:
+        - name: "Dump env context"
+          run: "echo \"$DATA\""
+          env:
+            DATA: "${{ toJson(env) }}"
 
-      - name: "Dump github context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(github) }}"
+        - name: "Dump github context"
+          run: "echo \"$DATA\""
+          env:
+            DATA: "${{ toJson(github) }}"
 
-      - name: "Dump job context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(job) }}"
+        - name: "Dump job context"
+          run: "echo \"$DATA\""
+          env:
+            DATA: "${{ toJson(job) }}"
 
-      - name: "Dump matrix context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(matrix) }}"
+        - name: "Dump matrix context"
+          run: "echo \"$DATA\""
+          env:
+            DATA: "${{ toJson(matrix) }}"
 
-      - name: "Dump runner context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(runner) }}"
+        - name: "Dump runner context"
+          run: "echo \"$DATA\""
+          env:
+            DATA: "${{ toJson(runner) }}"
 
-      - name: "Dump steps context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(steps) }}"
+        - name: "Dump steps context"
+          run: "echo \"$DATA\""
+          env:
+            DATA: "${{ toJson(steps) }}"
 
-      - name: "Dump strategy context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(strategy) }}"
+        - name: "Dump strategy context"
+          run: "echo \"$DATA\""
+          env:
+            DATA: "${{ toJson(strategy) }}"

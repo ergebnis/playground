@@ -18,43 +18,38 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
-    context:
-      name: "Context"
+    steps:
+      - name: "Dump env context"
+        run: "echo \"$DATA\""
+        env:
+          DATA: "${{ toJson(env) }}"
 
-      runs-on: "ubuntu-latest"
+      - name: "Dump github context"
+        run: "echo \"$DATA\""
+        env:
+          DATA: "${{ toJson(github) }}"
 
-      steps:
-        - name: "Dump env context"
-          run: "echo \"$DATA\""
-          env:
-            DATA: "${{ toJson(env) }}"
+      - name: "Dump job context"
+        run: "echo \"$DATA\""
+        env:
+          DATA: "${{ toJson(job) }}"
 
-        - name: "Dump github context"
-          run: "echo \"$DATA\""
-          env:
-            DATA: "${{ toJson(github) }}"
+      - name: "Dump matrix context"
+        run: "echo \"$DATA\""
+        env:
+          DATA: "${{ toJson(matrix) }}"
 
-        - name: "Dump job context"
-          run: "echo \"$DATA\""
-          env:
-            DATA: "${{ toJson(job) }}"
+      - name: "Dump runner context"
+        run: "echo \"$DATA\""
+        env:
+          DATA: "${{ toJson(runner) }}"
 
-        - name: "Dump matrix context"
-          run: "echo \"$DATA\""
-          env:
-            DATA: "${{ toJson(matrix) }}"
+      - name: "Dump steps context"
+        run: "echo \"$DATA\""
+        env:
+          DATA: "${{ toJson(steps) }}"
 
-        - name: "Dump runner context"
-          run: "echo \"$DATA\""
-          env:
-            DATA: "${{ toJson(runner) }}"
-
-        - name: "Dump steps context"
-          run: "echo \"$DATA\""
-          env:
-            DATA: "${{ toJson(steps) }}"
-
-        - name: "Dump strategy context"
-          run: "echo \"$DATA\""
-          env:
-            DATA: "${{ toJson(strategy) }}"
+      - name: "Dump strategy context"
+        run: "echo \"$DATA\""
+        env:
+          DATA: "${{ toJson(strategy) }}"

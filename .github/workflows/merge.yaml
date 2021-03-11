@@ -1,6 +1,6 @@
 # https://docs.github.com/en/actions
 
-name: "Integrate"
+name: "Merge"
 
 on: # yamllint disable-line rule:truthy
   workflow_run:

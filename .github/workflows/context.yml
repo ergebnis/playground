@@ -18,6 +18,9 @@ jobs:
       - name: "Dump env context"
         run: "env|sort"
 
+      - name: "Hmm"
+        run: "echo ${{ env.GITHUB_JOB }}"
+
       - name: "Dump github context"
         run: "echo \"$DATA\""
         env:

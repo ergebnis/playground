@@ -16,9 +16,7 @@ jobs:
 
     steps:
       - name: "Dump env context"
-        run: "echo \"$DATA\""
-        env:
-          DATA: "${{ toJson(env) }}"
+        run: "env|sort"
 
       - name: "Dump github context"
         run: "echo \"$DATA\""

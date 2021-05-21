@@ -3,7 +3,7 @@
 name: "Integrate"
 
 on: # yamllint disable-line rule:truthy
-  pull_request: null
+  pull_request_target: null
   push:
     branches:
       - "main"

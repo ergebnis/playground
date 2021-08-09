@@ -8,6 +8,11 @@ on: # yamllint disable-line rule:truthy
   pull_request: null
   pull_request_target: null
   push: null
+  workflow_run:
+    types:
+      - "completed"
+    workflows:
+      - "Integrate"
 
 jobs:
   context:

@@ -54,10 +54,6 @@ labels:
     color: "6a737d"
     description: ""
 
-  - name: "merge"
-    color: "6f42c1"
-    description: ""
-
   - name: "question"
     color: "cc317c"
     description: ""

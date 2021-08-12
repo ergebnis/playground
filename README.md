@@ -1,9 +1,12 @@
 # playground
 
+[![Context](https://github.com/ergebnis/playground/workflows/Context/badge.svg)](https://github.com/ergebnis/playground/actions)
 [![Integrate](https://github.com/ergebnis/playground/workflows/Integrate/badge.svg)](https://github.com/ergebnis/playground/actions)
+[![Merge](https://github.com/ergebnis/playground/workflows/Merge/badge.svg)](https://github.com/ergebnis/playground/actions)
 [![Prune](https://github.com/ergebnis/playground/workflows/Prune/badge.svg)](https://github.com/ergebnis/playground/actions)
 [![Release](https://github.com/ergebnis/playground/workflows/Release/badge.svg)](https://github.com/ergebnis/playground/actions)
 [![Renew](https://github.com/ergebnis/playground/workflows/Renew/badge.svg)](https://github.com/ergebnis/playground/actions)
+[![Triage](https://github.com/ergebnis/playground/workflows/Triage/badge.svg)](https://github.com/ergebnis/playground/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/playground/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/playground)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/playground/coverage.svg)](https://shepherd.dev/github/ergebnis/playground)

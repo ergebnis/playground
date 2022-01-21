@@ -16,6 +16,4 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   context:
-    name: "Context (Job)"
-
     uses: 'ergebnis/playground/.github/workflows/context-reusable.yaml@main'

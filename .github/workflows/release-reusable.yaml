@@ -9,7 +9,7 @@ on: # yamllint disable-line rule:truthy
         required: true
 
 jobs:
-  release:
+  release-reusable-key:
     name: "Release (Reusable)"
 
     runs-on: "ubuntu-latest"

@@ -39,7 +39,7 @@ jobs:
           script: |
             const repository = context.repo
 
-            await octokit.rest.repos.createRelease({
+            await github.rest.repos.createRelease({
               body: "${{ env.RELEASE_BODY }}",
               draft: false,
               name: "${{ env.RELEASE_TAG }}",

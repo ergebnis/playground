@@ -10,7 +10,7 @@ on: # yamllint disable-line rule:truthy
 jobs:
   release:
     name: "Release"
-    uses: 'ergebnis/playground/.github/workflows/release-resuable.yaml@main'
+    uses: 'ergebnis/playground/.github/workflows/release-reusable.yaml@main'
     with:
       secrets:
         WORKFLOW_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"

@@ -7,8 +7,6 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   context:
-    name: "Context (Job in reusable Workflow)"
-
     runs-on: "ubuntu-latest"
 
     steps:

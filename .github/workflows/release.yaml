@@ -40,7 +40,7 @@ jobs:
           RELEASE_BODY="${RELEASE_BODY//$'\n'/'%0A'}"
           RELEASE_BODY="${RELEASE_BODY//$'\r'/'%0D'}"
 
-          echo \"RELEASE_BODY=${RELEASE_BODY}\" >> $GITHUB_ENV"
+          echo RELEASE_BODY="${RELEASE_BODY}" >> $GITHUB_ENV
         env:
           RELEASE_BODY: |
             ## What's Changed

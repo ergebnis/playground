@@ -22,7 +22,7 @@ jobs:
       - name: "Determine release body"
         uses: "actions/github-script@v5"
         with:
-          github-token: "${{ secrets.WORKFLOW_TOKEN }}"
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
             const repository = context.repo;
 
@@ -65,7 +65,7 @@ jobs:
             **Full Changelog**: https://github.com/ergebnis/json-normalizer/compare/2.1.0...2.2.0
           RELEASE_TAG: "0.7.20"
         with:
-          github-token: "${{ secrets.WORKFLOW_TOKEN }}"
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
             const repository = context.repo;
 

@@ -25,15 +25,15 @@ jobs:
             const pullRequest = context.payload.pull_request
             const repository = context.repo
 
-            const { body }  = await github.rest.repos.generateReleaseNotes({
+            const releaseNotes = await github.rest.repos.generateReleaseNotes({
               owner: repository.owner,
               repo: repository.repo,
               tag_name: '${{ env.TAG_NAME }}',
             });
 
-            console.log(body)
+            console.log(releaseNotes);
 
-            core.exportVariable("RELEASE_NOTES", body);
+            core.exportVariable("RELEASE_NOTES", releaseNotes);
 
       - name: "Create release"
         uses: "actions/create-release@v1.1.4"

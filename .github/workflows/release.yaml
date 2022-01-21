@@ -31,13 +31,14 @@ jobs:
               tag_name: '${{ env.TAG_NAME }}',
             });
 
-            console.log(body)
+            core.exportVariable("RELEASE_NOTES", body);
 
       - name: "Create release"
         uses: "actions/create-release@v1.1.4"
         env:
           GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
+          body: "${{ env.RELEASE_NOTES }}"
           draft: false
           prerelease: false
           release_name: "${{ env.TAG_NAME }}"

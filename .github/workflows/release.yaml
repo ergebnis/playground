@@ -31,6 +31,8 @@ jobs:
               tag_name: '${{ env.TAG_NAME }}',
             });
 
+            console.log(body)
+
             core.exportVariable("RELEASE_NOTES", body);
 
       - name: "Create release"

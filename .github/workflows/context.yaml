@@ -1,6 +1,6 @@
 # https://docs.github.com/en/actions
 
-name: "Context"
+name: "Context (Worflow)"
 
 on: # yamllint disable-line rule:truthy
   check_run: null
@@ -16,6 +16,6 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   context:
-    name: "Context"
+    name: "Context (Job)"
 
     uses: 'ergebnis/playground/.github/workflows/context-reusable.yaml@main'

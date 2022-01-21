@@ -1,13 +1,13 @@
 # https://docs.github.com/en/actions
 
-name: "Context"
+name: "Context (Reusable Workflow)"
 
 on: # yamllint disable-line rule:truthy
   workflow_call: null
 
 jobs:
   context:
-    name: "Context"
+    name: "Context (Job in reusable Workflow)"
 
     runs-on: "ubuntu-latest"
 

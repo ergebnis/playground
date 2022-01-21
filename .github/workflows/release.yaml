@@ -11,7 +11,7 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   release-key:
-    name: "Release (Reusing)"
+    name: "Release"
 
     runs-on: "ubuntu-latest"
 
@@ -63,7 +63,7 @@ jobs:
             * Fix: Update `CHANGELOG.md` by @localheinz in https://github.com/ergebnis/json-normalizer/pull/644
 
             **Full Changelog**: https://github.com/ergebnis/json-normalizer/compare/2.1.0...2.2.0
-          RELEASE_TAG: "0.7.20"
+          RELEASE_TAG: "0.7.21"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |

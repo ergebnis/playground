@@ -63,14 +63,18 @@ jobs:
             * Fix: Update `CHANGELOG.md` by @localheinz in https://github.com/ergebnis/json-normalizer/pull/644
 
             **Full Changelog**: https://github.com/ergebnis/json-normalizer/compare/2.1.0...2.2.0
-          RELEASE_TAG: "0.7.23"
+          RELEASE_TAG: "0.7.24"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
             const repository = context.repo;
 
+            const body = `
+              ${{ env.RELEASE_BODY }}
+            `;
+
             await github.rest.repos.createRelease({
-              body: JSON.stringify("${{ env.RELEASE_BODY }}"),
+              body: body,
               draft: false,
               name: "${{ env.RELEASE_TAG }}",
               owner: repository.owner,

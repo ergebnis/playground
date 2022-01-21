@@ -18,4 +18,4 @@ jobs:
   context:
     name: "Context"
 
-    uses: './.github/workflows/context-reusable.yaml@main'
+    uses: 'ergebnis/playground/.github/workflows/context-reusable.yaml@main'

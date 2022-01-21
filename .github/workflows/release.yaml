@@ -22,7 +22,7 @@ jobs:
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
-            const repository = context.repo
+            const repository = context.repo;
 
             const response = await github.rest.repos.generateReleaseNotes({
               owner: repository.owner,
@@ -37,7 +37,7 @@ jobs:
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
-            const repository = context.repo
+            const repository = context.repo;
 
             await github.rest.repos.createRelease({
               body: "${{ env.RELEASE_BODY }}",

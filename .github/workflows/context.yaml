@@ -18,4 +18,4 @@ jobs:
   context:
     name: "Context"
 
-    uses: './context-reusable.yaml'
+    uses: './context-reusable.yaml@main'

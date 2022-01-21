@@ -11,6 +11,5 @@ jobs:
   release:
     name: "Release"
     uses: 'ergebnis/playground/.github/workflows/release-reusable.yaml@main'
-    with:
-      secrets:
-        WORKFLOW_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+    secrets:
+      WORKFLOW_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"

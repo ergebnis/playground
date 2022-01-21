@@ -10,7 +10,7 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   release:
-    name: "Release"
+    name: "Release (Reusable)"
 
     runs-on: "ubuntu-latest"
 

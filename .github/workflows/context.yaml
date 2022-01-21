@@ -1,6 +1,6 @@
 # https://docs.github.com/en/actions
 
-name: "Context (Worflow)"
+name: "Context"
 
 on: # yamllint disable-line rule:truthy
   check_run: null

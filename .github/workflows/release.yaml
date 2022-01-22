@@ -25,7 +25,7 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v5"
         env:
-          RELEASE_TAG: "0.7.42"
+          RELEASE_TAG: "0.7.43"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -36,9 +36,9 @@ jobs:
                 draft: false,
                 generate_release_notes: true,
                 name: process.env.RELEASE_TAG,
-                owner: repository.owner,
+                owner: context.repo.owner,
                 prerelease: false,
-                repo: repository.repo,
+                repo: context.repo.repo,
                 tag_name: process.env.RELEASE_TAG,
               });
             } catch (error) {
@@ -59,8 +59,6 @@ jobs:
           script: |
             const fs = require("fs");
 
-            const repository = context.repo;
-
             const files = [
               {
                 name: "Makefile",
@@ -78,9 +76,9 @@ jobs:
                   data: fs.readFileSync(file.path),
                   name: file.name,
                   origin: process.env.RELEASE_UPLOAD_URL,
-                  owner: repository.owner,
+                  owner: context.repo.owner,
                   release_id: process.env.RELEASE_ID,
-                  repo: repository.repo,
+                  repo: context.repo.repo,
                 });
               } catch (error) {
                 core.setFailed(error.message);

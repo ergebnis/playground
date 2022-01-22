@@ -65,11 +65,7 @@ jobs:
               {
                 name: "Makefile",
                 path: "Makefile",
-              },
-              {
-                name: "settings.yml",
-                path: ".github/settings.yml",
-              },
+              }
             ];
 
             files.forEach(function (file) {

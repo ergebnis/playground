@@ -22,7 +22,7 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v5"
         env:
-          RELEASE_TAG: "0.7.31"
+          RELEASE_TAG: "0.7.32"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |

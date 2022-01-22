@@ -22,7 +22,7 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v5"
         env:
-          RELEASE_TAG: "0.7.28"
+          RELEASE_TAG: "0.7.29"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -38,4 +38,24 @@ jobs:
               tag_name: "${{ env.RELEASE_TAG }}",
             });
 
-            console.log(response)
+            core.exportVariable("RELEASE_ID", response.data.id)
+            core.exportVariable("RELEASE_UPLOAD_URL", response.data.upload_url)
+
+      - name: "Upload release assets"
+        uses: "actions/github-script@v5"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const fs = require("fs");
+
+            const repository = context.repo;
+
+            await github.rest.repos.uploadReleaseAsset({
+              data: fs.readFileSync("Makefile"),
+              name: "Makefile",
+              origin: "${{ env.RELEASE_UPLOAD_URL }}",
+              owner: repository.owner,
+              release_id: "${{ env.RELEASE_ID }}",
+              repo: repository.repo,
+            });
+

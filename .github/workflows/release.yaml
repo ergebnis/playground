@@ -22,7 +22,7 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v5"
         env:
-          RELEASE_TAG: "0.7.29"
+          RELEASE_TAG: "0.7.30"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -51,7 +51,7 @@ jobs:
             const repository = context.repo;
 
             await github.rest.repos.uploadReleaseAsset({
-              data: fs.readFileSync("Makefile"),
+              data: fs.readFileSync("./Makefile"),
               name: "Makefile",
               origin: "${{ env.RELEASE_UPLOAD_URL }}",
               owner: repository.owner,

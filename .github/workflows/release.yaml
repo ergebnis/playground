@@ -22,7 +22,7 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v5"
         env:
-          RELEASE_TAG: "0.7.32"
+          RELEASE_TAG: "0.7.33"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -49,6 +49,8 @@ jobs:
 
       - name: "Upload release assets"
         uses: "actions/github-script@v5"
+        env:
+          FOO: "${{ env.GITHUB_WORKSPACE }}"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |

@@ -25,7 +25,7 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v5"
         env:
-          RELEASE_TAG: "0.7.37"
+          RELEASE_TAG: "0.7.38"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -70,7 +70,7 @@ jobs:
                 name: "settings.yml",
                 path: ".github/settings.yml",
               },
-            }
+            ];
 
             files.forEach(function (file) {
               try {

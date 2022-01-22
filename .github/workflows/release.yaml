@@ -50,12 +50,17 @@ jobs:
 
             const repository = context.repo;
 
-            await github.rest.repos.uploadReleaseAsset({
-              data: fs.readFileSync("${{ env.GITHUB_WORKSPACE }}/Makefile"),
-              name: "Makefile",
-              origin: "${{ env.RELEASE_UPLOAD_URL }}",
-              owner: repository.owner,
-              release_id: "${{ env.RELEASE_ID }}",
-              repo: repository.repo,
-            });
+            try {
+              await github.rest.repos.uploadReleaseAsset({
+                data: fs.readFileSync("${{ env.GITHUB_WORKSPACE }}/Makefile"),
+                name: "Makefile",
+                origin: "${{ env.RELEASE_UPLOAD_URL }}",
+                owner: repository.owner,
+                release_id: "${{ env.RELEASE_ID }}",
+                repo: repository.repo,
+              });
+            } catch (error) {
+             core.setFailed(error.message);
+            }
+
 

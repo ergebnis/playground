@@ -25,7 +25,7 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v5"
         env:
-          RELEASE_TAG: "0.7.40"
+          RELEASE_TAG: "0.7.41"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -68,7 +68,7 @@ jobs:
               }
             ];
 
-            files.forEach(function (file) {
+            for (const file of files) {
               try {
                 await github.rest.repos.uploadReleaseAsset({
                   data: fs.readFileSync(file.path),
@@ -81,7 +81,7 @@ jobs:
               } catch (error) {
                 core.setFailed(error.message);
               }
-            });
+            }
 
 
 

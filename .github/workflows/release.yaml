@@ -25,7 +25,7 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v5"
         env:
-          RELEASE_TAG: "0.7.35"
+          RELEASE_TAG: "0.7.36"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -35,11 +35,11 @@ jobs:
               response = await github.rest.repos.createRelease({
                 draft: false,
                 generate_release_notes: true,
-                name: "${{ env.RELEASE_TAG }}",
+                name: process.env.RELEASE_TAG,
                 owner: repository.owner,
                 prerelease: false,
                 repo: repository.repo,
-                tag_name: "${{ env.RELEASE_TAG }}",
+                tag_name: process.env.RELEASE_TAG,
               });
             } catch (error) {
               core.setFailed(error.message);
@@ -63,7 +63,7 @@ jobs:
 
             try {
               await github.rest.repos.uploadReleaseAsset({
-                data: fs.readFileSync(process.env.GITHUB_WORKSPACE + "/Makefile"),
+                data: fs.readFileSync("Makefile"),
                 name: "Makefile",
                 origin: process.env.RELEASE_UPLOAD_URL,
                 owner: repository.owner,

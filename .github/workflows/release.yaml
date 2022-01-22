@@ -25,7 +25,7 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v5"
         env:
-          RELEASE_TAG: "0.7.41"
+          RELEASE_TAG: "0.7.42"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -65,6 +65,10 @@ jobs:
               {
                 name: "Makefile",
                 path: "Makefile",
+              }
+              {
+                name: ".github/settings.yml",
+                path: "settings.yml",
               }
             ];
 

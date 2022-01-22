@@ -16,6 +16,9 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.4.0"
+
       - name: "Determine release tag"
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
@@ -62,9 +65,9 @@ jobs:
               await github.rest.repos.uploadReleaseAsset({
                 data: fs.readFileSync(process.env.GITHUB_WORKSPACE + "/Makefile"),
                 name: "Makefile",
-                origin: "${{ env.RELEASE_UPLOAD_URL }}",
+                origin: process.env.RELEASE_UPLOAD_URL,
                 owner: repository.owner,
-                release_id: "${{ env.RELEASE_ID }}",
+                release_id: process.env.RELEASE_ID,
                 repo: repository.repo,
               });
             } catch (error) {

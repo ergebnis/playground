@@ -28,15 +28,21 @@ jobs:
           script: |
             const repository = context.repo;
 
-            response = await github.rest.repos.createRelease({
-              draft: false,
-              generate_release_notes: true,
-              name: "${{ env.RELEASE_TAG }}",
-              owner: repository.owner,
-              prerelease: false,
-              repo: repository.repo,
-              tag_name: "${{ env.RELEASE_TAG }}",
-            });
+            try {
+              response = await github.rest.repos.createRelease({
+                draft: false,
+                generate_release_notes: true,
+                name: "${{ env.RELEASE_TAG }}",
+                owner: repository.owner,
+                prerelease: false,
+                repo: repository.repo,
+                tag_name: "${{ env.RELEASE_TAG }}",
+              });
+            } catch (error) {
+              core.setFailed(error.message);
+
+              return;
+            }
 
             core.exportVariable("RELEASE_ID", response.data.id)
             core.exportVariable("RELEASE_UPLOAD_URL", response.data.upload_url)
@@ -60,7 +66,7 @@ jobs:
                 repo: repository.repo,
               });
             } catch (error) {
-             core.setFailed(error.message);
+              core.setFailed(error.message);
             }
 
 

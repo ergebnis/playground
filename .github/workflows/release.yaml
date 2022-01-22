@@ -60,7 +60,7 @@ jobs:
 
             try {
               await github.rest.repos.uploadReleaseAsset({
-                data: fs.readFileSync("${{ env.GITHUB_WORKSPACE }}/Makefile"),
+                data: fs.readFileSync(process.env.GITHUB_WORKSPACE + "/Makefile"),
                 name: "Makefile",
                 origin: "${{ env.RELEASE_UPLOAD_URL }}",
                 owner: repository.owner,

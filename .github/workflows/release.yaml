@@ -4,35 +4,26 @@ name: "Release"
 
 on: # yamllint disable-line rule:truthy
   push:
-    branches:
-      - "main"
     tags:
       - "**"
 
 jobs:
-  release-key:
+  release:
     name: "Release"
 
     runs-on: "ubuntu-latest"
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v2.4.0"
-
-      - name: "Determine release tag"
+      - name: "Determine tag"
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
       - name: "Create release"
         uses: "actions/github-script@v5"
-        env:
-          RELEASE_TAG: "0.7.46"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
-            const repository = context.repo;
-
             try {
-              response = await github.rest.repos.createRelease({
+              await github.rest.repos.createRelease({
                 draft: false,
                 generate_release_notes: true,
                 name: process.env.RELEASE_TAG,
@@ -43,48 +34,4 @@ jobs:
               });
             } catch (error) {
               core.setFailed(error.message);
-
-              return;
             }
-
-            core.exportVariable("RELEASE_ID", response.data.id)
-            core.exportVariable("RELEASE_UPLOAD_URL", response.data.upload_url)
-
-      - name: "Upload release assets"
-        uses: "actions/github-script@v5"
-        env:
-          FOO: "${{ env.GITHUB_WORKSPACE }}"
-        with:
-          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          script: |
-            const fs = require("fs");
-
-            const files = [
-              {
-                name: "Makefile",
-                path: "Makefile",
-              },
-              {
-                name: "settings.yml",
-                path: ".github/settings.yml",
-              },
-            ];
-
-            for (const file of files) {
-              try {
-                await github.rest.repos.uploadReleaseAsset({
-                  data: fs.readFileSync(file.path),
-                  name: file.name,
-                  origin: process.env.RELEASE_UPLOAD_URL,
-                  owner: context.repo.owner,
-                  release_id: process.env.RELEASE_ID,
-                  repo: context.repo.repo,
-                  label: "harry",
-                });
-              } catch (error) {
-                core.setFailed(error.message);
-              }
-            }
-
-
-

@@ -14,6 +14,7 @@ inputs:
     description: "GitHub token of a user with permission to merge a pull request"
     required: true
   merge-method:
+    default: "merge"
     description: "Which merge method to use, one \"merge\", \"rebase\", \"squash\""
     required: true
 
@@ -42,9 +43,10 @@ runs:
 
     - name: "Merge pull request"
       uses: "actions/github-script@v5"
+      env:
+        MERGE_METHOD: "${{ inputs.merge-method }}"
       with:
         github-token: "${{ inputs.github-token }}"
-        merge-method: "${{ inputs.merge-method }}"
         script: |
           if (!process.env.PULL_REQUEST_NUMBER) {
             core.setFailed("The environment variable PULL_REQUEST_NUMBER is not defined.")
@@ -54,7 +56,7 @@ runs:
 
           try {
             await github.rest.pulls.merge({
-              merge_method: core.getInput("merge-method"),
+              merge_method: process.env.MERGE_METHOD,
               owner: context.repo.owner,
               pull_number: process.env.PULL_REQUEST_NUMBER,
               repo: context.repo.repo,

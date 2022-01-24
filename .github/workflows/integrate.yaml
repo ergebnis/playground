@@ -22,7 +22,6 @@ jobs:
         uses: "./.github/actions/github/merge"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          merge-method: "merge"
 
   code-coverage:
     name: "Code Coverage"

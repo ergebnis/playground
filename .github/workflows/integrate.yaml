@@ -10,7 +10,7 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   assign:
-    name: "Merge"
+    name: "Assign"
 
     runs-on: "ubuntu-latest"
 
@@ -18,10 +18,11 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2.4.0"
 
-      - name: "Merge pull request"
-        uses: "./.github/actions/github/merge"
+      - name: "Request review"
+        uses: "./.github/actions/github/pull-request/request-review"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          reviewer: "ergebnis-bot"
 
   code-coverage:
     name: "Code Coverage"

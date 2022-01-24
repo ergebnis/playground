@@ -1,21 +1,20 @@
 # https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-run-steps-actions
-# https://docs.github.com/en/rest/reference/pulls#merge-a-pull-request
+# https://docs.github.com/en/rest/reference/pulls#request-reviewers-for-a-pull-request
 # https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request
 # https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run
 
-name: "Merge pull request"
+name: "Request review from reviewer for pull request"
 
-description: "Merges a pull request"
+description: "Requests a review from a reviewer for a pull request"
 
 inputs:
   github-token:
-    description: "GitHub token of a user with permission to merge a pull request"
+    description: "GitHub token of a user with permission to add labels to to a pull request"
     required: true
-  merge-method:
-    default: "merge"
-    description: "Which merge method to use, one \"merge\", \"rebase\", \"squash\""
+  reviewer:
+    description: "Username of user to request review from as reviewer for a pull request"
     required: true
 
 runs:
@@ -39,27 +38,31 @@ runs:
             return;
           }
 
-          core.setFailed(`Unable to determine the pull request number for event "${context.eventName}"`);
+          core.setFailed(`Unable to determine the pull request number and branch name for event "${context.eventName}"`);
 
-    - name: "Merge pull request"
+    - name: "Request reviewer"
       uses: "actions/github-script@v5"
       env:
-        MERGE_METHOD: "${{ inputs.merge-method }}"
+        REVIEWER: "${{ inputs.reviewer }}"
       with:
         github-token: "${{ inputs.github-token }}"
         script: |
           if (!process.env.PULL_REQUEST_NUMBER) {
-            core.setFailed("The environment variable PULL_REQUEST_NUMBER is not defined.")
+            core.setFailed("The environment variable PULL_REQUEST_NUMBER is not defined.");
 
             return;
           }
 
+          const reviewers = [
+            process.env.REVIEWER,
+          ];
+
           try {
-            await github.rest.pulls.merge({
-              merge_method: process.env.MERGE_METHOD,
+            await github.rest.pulls.requestReviewers({
               owner: context.repo.owner,
               pull_number: process.env.PULL_REQUEST_NUMBER,
               repo: context.repo.repo,
+              reviewers: reviewers,
             });
           } catch (error) {
             core.setFailed(error.message);

@@ -46,6 +46,9 @@ jobs:
       - name: "Create release assets"
         run: "touch ${{ env.COMPOSER_NORMALIZE_PHAR }} ${{ env.COMPOSER_NORMALIZE_PHAR_ASC }}"
 
+      - name: "List release assets"
+        run: "ls -la .build/phar/"
+
       - name: "Upload release assets"
         uses: "actions/github-script@v6"
         with:

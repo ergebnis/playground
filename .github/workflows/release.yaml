@@ -38,6 +38,8 @@ jobs:
               });
             } catch (error) {
               core.setFailed(error.message);
+
+              return;
             }
 
             core.exportVariable('RELEASE_ID', response.data.id);

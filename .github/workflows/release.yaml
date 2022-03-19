@@ -52,6 +52,7 @@ jobs:
       - name: "Upload release assets"
         uses: "actions/github-script@v6"
         with:
+          debug: true
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
             const fs = require("fs");

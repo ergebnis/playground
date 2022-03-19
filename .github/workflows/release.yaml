@@ -36,14 +36,12 @@ jobs:
                 repo: context.repo.repo,
                 tag_name: process.env.RELEASE_TAG,
               });
+
+              core.exportVariable('RELEASE_ID', response.data.id);
+              core.exportVariable('RELEASE_UPLOAD_URL', response.data.upload_url);
             } catch (error) {
               core.setFailed(error.message);
-
-              return;
             }
-
-            core.exportVariable('RELEASE_ID', response.data.id);
-            core.exportVariable('RELEASE_UPLOAD_URL', response.data.upload_url);
 
       - name: "Create release asset directory"
         run: "mkdir -p .build/phar/"

@@ -46,8 +46,11 @@ jobs:
       - name: "Create release asset directory"
         run: "mkdir -p .build/phar/"
 
-      - name: "Create release assets"
-        run: "touch ${{ env.COMPOSER_NORMALIZE_PHAR }} ${{ env.COMPOSER_NORMALIZE_PHAR_SIGNATURE }}"
+      - name: "Create release asset"
+        run: "echo \"Hmm\" >> ${{ env.COMPOSER_NORMALIZE_PHAR }}"
+
+      - name: "Create release asset"
+        run: "echo \"Ok\" >> ${{ env.COMPOSER_NORMALIZE_PHAR_SIGNATURE }}"
 
       - name: "List release assets"
         run: "ls -la .build/phar/"

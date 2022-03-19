@@ -27,7 +27,7 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
             try {
-              await github.rest.repos.createRelease({
+              const response = await github.rest.repos.createRelease({
                 draft: false,
                 generate_release_notes: true,
                 name: process.env.RELEASE_TAG,
@@ -39,6 +39,9 @@ jobs:
             } catch (error) {
               core.setFailed(error.message);
             }
+
+            core.exportVariable('RELEASE_ID', response.data.id);
+            core.exportVariable('RELEASE_UPLOAD_URL', response.data.upload_url);
 
       - name: "Create release asset directory"
         run: "mkdir -p .build/phar/"
@@ -55,6 +58,18 @@ jobs:
           debug: true
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
+            if (!process.env.RELEASE_ID) {
+              core.setFailed("The environment variable RELEASE_ID is not defined.")
+
+              return;
+            }
+
+            if (!process.env.RELEASE_UPLOAD_URL) {
+              core.setFailed("The environment variable RELEASE_UPLOAD_URL is not defined.")
+
+              return;
+            }
+
             const fs = require("fs");
 
             const files = [

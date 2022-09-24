@@ -32,6 +32,9 @@ jobs:
         env:
           DATA: "${{ toJson(github) }}"
 
+      - name: "Dump GITHUB_RUN_ID"
+        run: "echo ${{ env.GITHUB_RUN_ID }}"
+
       - name: "Dump job context"
         run: "echo \"$DATA\""
         env:

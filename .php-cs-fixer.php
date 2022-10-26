@@ -21,7 +21,7 @@ $license = License\Type\MIT::markdown(
         new \DateTimeZone('UTC'),
     ),
     License\Holder::fromString('Andreas Möller'),
-    License\Url::fromString('https://github.com/ergebnis/php-library-template'),
+    License\Url::fromString('https://github.com/ergebnis/playground'),
 );
 
 $license->save();

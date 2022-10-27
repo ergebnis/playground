@@ -1,15 +1,19 @@
 {
   "name": "ergebnis/playground",
-  "type": "library",
   "description": "Provides a GitHub repository template for a PHP library.",
-  "homepage": "https://github.com/ergebnis/playground",
   "license": "MIT",
+  "type": "library",
   "authors": [
     {
       "name": "Andreas Möller",
       "email": "am@localheinz.com"
     }
   ],
+  "homepage": "https://github.com/ergebnis/playground",
+  "support": {
+    "issues": "https://github.com/ergebnis/playground/issues",
+    "source": "https://github.com/ergebnis/playground"
+  },
   "require": {
     "php": "^8.1"
   },
@@ -23,6 +27,16 @@
     "psalm/plugin-phpunit": "~0.17.0",
     "vimeo/psalm": "^4.18"
   },
+  "autoload": {
+    "psr-4": {
+      "Ergebnis\\Playground\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ergebnis\\Playground\\Test\\": "test/"
+    }
+  },
   "config": {
     "allow-plugins": {
       "composer/package-versions-deprecated": true,
@@ -35,19 +49,5 @@
     },
     "preferred-install": "dist",
     "sort-packages": true
-  },
-  "autoload": {
-    "psr-4": {
-      "Ergebnis\\Playground\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Ergebnis\\Playground\\Test\\": "test/"
-    }
-  },
-  "support": {
-    "issues": "https://github.com/ergebnis/playground/issues",
-    "source": "https://github.com/ergebnis/playground"
   }
 }

@@ -15,11 +15,8 @@ namespace Ergebnis\Playground;
 
 final class Example
 {
-    private string $name;
-
-    private function __construct(string $name)
+    private function __construct(private readonly string $name)
     {
-        $this->name = $name;
     }
 
     public static function fromName(string $name): self

@@ -283,9 +283,7 @@ jobs:
           - "8.1"
 
         dependencies:
-          - "lowest"
           - "locked"
-          - "highest"
 
     steps:
       - name: "Checkout"

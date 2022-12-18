@@ -31,6 +31,22 @@ jobs:
 
             core.setFailed(`Unable to determine the issue number for event "${context.eventName}"`);
 
+      - name: "Add comment to issue"
+        uses: "actions/github-script@v6.3.1"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            try {
+              await github.rest.issues.createComment({
+                body: "Apologies, but we do not accept any issues at the moment.",
+                issue_number: process.env.ISSUE_NUMBER,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+              });
+            } catch (error) {
+              core.setFailed(error.message);
+            }
+
       - name: "Close issue"
         uses: "actions/github-script@v6.3.1"
         with:

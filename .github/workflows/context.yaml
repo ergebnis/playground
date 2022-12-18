@@ -5,6 +5,7 @@ name: "Context"
 on: # yamllint disable-line rule:truthy
   check_run: null
   check_suite: null
+  issues: null
   pull_request: null
   pull_request_target: null
   push: null

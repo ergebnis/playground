@@ -42,7 +42,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 state: "closed",
-                state_reason:"not_planned",
+                state_reason: "not_planned",
               });
             } catch (error) {
               core.setFailed(error.message);

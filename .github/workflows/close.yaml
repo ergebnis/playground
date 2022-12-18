@@ -11,11 +11,11 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
-    if: >
-      github.event.name == 'issues' && (
-        github.event.action == 'opened' ||
-        github.event.action == 'reopened'
-      )
+#    if: >
+#      github.event.name == 'issues' && (
+#        github.event.action == 'opened' ||
+#        github.event.action == 'reopened'
+#      )
 
     steps:
       - name: "Determine issue number"

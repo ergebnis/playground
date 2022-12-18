@@ -63,3 +63,19 @@ jobs:
             } catch (error) {
               core.setFailed(error.message);
             }
+
+      - name: "Lock issue"
+        uses: "actions/github-script@v6.3.1"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            try {
+              await github.rest.issues.lock({
+                issue_number: process.env.ISSUE_NUMBER,
+                lock_reason: "too heated",
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+              });
+            } catch (error) {
+              core.setFailed(error.message);
+            }

@@ -29,16 +29,22 @@ jobs:
               return;
             }
 
-            core.setFailed(`Unable to determine the issue number for event "${context.eventName}"`);
+            if (context.eventName == 'pull_request') {
+              core.exportVariable("ISSUE_NUMBER", context.payload.pull_request.number);
 
-      - name: "Add comment to issue"
+              return;
+            }
+
+            core.setFailed(`Unable to determine the issue number or pull request number for event "${context.eventName}"`);
+
+      - name: "Add comment to issue or pull request"
         uses: "actions/github-script@v6.3.1"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
             try {
               await github.rest.issues.createComment({
-                body: "Apologies, but we do not accept any issues at the moment.",
+                body: "Apologies, but we do not accept any issues or pull requests at the moment.",
                 issue_number: process.env.ISSUE_NUMBER,
                 owner: context.repo.owner,
                 repo: context.repo.repo,

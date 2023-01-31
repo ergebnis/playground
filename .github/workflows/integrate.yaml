@@ -174,6 +174,18 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
+      - name: "Cache dependencies installed with phive"
+        uses: "actions/cache@v3.2.4"
+        with:
+          path: ".build/phive"
+          key: "phive-hashFiles('**/phars.xml')"
+          restore-keys: "phive-"
+
+      - name: "Install dependencies with phive"
+        run: "docker run --interactive --volume $GITHUB_WORKSPACE/.build/phive:/home/ --volume $GITHUB_WORKSPACE:/repo/ phario/phive:0.15.2 install ${{ env.PHIVE_OPTIONS }}"
+        env:
+          PHIVE_OPTIONS: "--trust-gpg-keys 0x033E5F8D801A2F8D"
+
       - name: "Run maglnet/composer-require-checker"
         run: ".phive/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
 

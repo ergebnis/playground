@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1017314ef12184d66d3308bc55a9cd13",
+    "content-hash": "acd1fe15d66904ffbf675cc4871da14c",
     "packages": [],
     "packages-dev": [
         {
@@ -1306,16 +1306,16 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "5.5.0",
+            "version": "5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "3558825e7249d9e355fea2decc26e41c696fa341"
+                "reference": "f25ed0a5c524f96f0fd30ca9acf3af00bc6734c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/3558825e7249d9e355fea2decc26e41c696fa341",
-                "reference": "3558825e7249d9e355fea2decc26e41c696fa341",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/f25ed0a5c524f96f0fd30ca9acf3af00bc6734c8",
+                "reference": "f25ed0a5c524f96f0fd30ca9acf3af00bc6734c8",
                 "shasum": ""
             },
             "require": {
@@ -1328,9 +1328,9 @@
                 "ergebnis/license": "^2.1.0",
                 "fakerphp/faker": "^1.21.0",
                 "infection/infection": "~0.26.19",
-                "phpunit/phpunit": "^9.6.6",
+                "phpunit/phpunit": "^9.6.7",
                 "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.15.24",
+                "rector/rector": "~0.15.25",
                 "symfony/filesystem": "^5.0.0 || ^6.0.0",
                 "symfony/process": "^5.0.0 || ^6.0.0",
                 "vimeo/psalm": "^5.9.0"
@@ -1363,7 +1363,7 @@
                 "issues": "https://github.com/ergebnis/php-cs-fixer-config/issues",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2023-04-11T17:38:16+00:00"
+            "time": "2023-04-27T16:43:33+00:00"
         },
         {
             "name": "fakerphp/faker",

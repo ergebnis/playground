@@ -17,18 +17,14 @@ use Ergebnis\Playground\Example;
 use Ergebnis\Playground\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Playground\Example
- */
+#[Framework\Attributes\CoversClass(Example::class)]
 final class ExampleTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
     public function testFromNameReturnsExample(): void
     {
-        $name = self::faker()->sentence;
+        $name = self::faker()->sentence();
 
         $example = Example::fromName($name);
 

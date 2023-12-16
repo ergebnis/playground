@@ -32,4 +32,4 @@ jobs:
           tweet-message: |
             🏀 Just released: ${{ github.event.repository.owner.login }}/${{ github.event.repository.name }}:${{ env.RELEASE_TAG }}.
 
-            ${{ env.RELEASE_URL }}
+            ${{ env.RELEASE_HTML_URL }}

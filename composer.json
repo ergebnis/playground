@@ -15,16 +15,19 @@
     "source": "https://github.com/ergebnis/playground"
   },
   "require": {
-    "php": "~8.1.0"
+    "php": "~8.1.0 || ~8.2.0 || ~8.3.0"
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.41.1",
     "ergebnis/license": "^2.4.0",
     "ergebnis/php-cs-fixer-config": "~6.14.0",
+    "ergebnis/phpunit-slow-test-detector": "^2.7.0",
     "fakerphp/faker": "^1.23.0",
     "infection/infection": "~0.27.9",
     "phpunit/phpunit": "^10.5.3",
     "psalm/plugin-phpunit": "~0.18.4",
+    "rector/rector": "~0.18.12",
+    "roave/backward-compatibility-check": "^8.4.0",
     "vimeo/psalm": "^5.17"
   },
   "autoload": {
@@ -44,8 +47,11 @@
       "infection/extension-installer": true,
       "phpstan/extension-installer": true
     },
+    "audit": {
+      "abandoned": "report"
+    },
     "platform": {
-      "php": "8.1.10"
+      "php": "8.1.26"
     },
     "preferred-install": "dist",
     "sort-packages": true

@@ -526,5 +526,13 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
+      - name: "Show phpunit/phpunit version"
+        run: |
+          vendor/bin/phpunit --version | grep --extended-regexp '\d+\.' --only-matching
+
+      - name: "Determine phpunit/phpunit version"
+        run: |
+          echo "PHPUNIT_VERSION=$(vendor/bin/phpunit --version | grep --extended-regexp \(\\d+\\.\){2}\\d+ --only-matching)" >> $GITHUB_ENV
+
       - name: "Run unit tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --colors=always --configuration=test/Unit/phpunit.xml"

@@ -42,6 +42,7 @@ jobs:
                 prerelease: false,
                 repo: context.repo.repo,
                 tag_name: process.env.RELEASE_TAG,
+                target_commitish: "develop",
               });
 
               core.exportVariable('RELEASE_HTML_URL', response.data.html_url);

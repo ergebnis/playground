@@ -24,7 +24,8 @@ jobs:
       - name: "Create release"
         uses: "actions/github-script@v7.0.1"
         with:
-          github-token: "${{ inputs.github-token }}"
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+
           script: |
             if (!process.env.RELEASE_TAG) {
               core.setFailed("The environment variable RELEASE_TAG is not defined.")

@@ -461,11 +461,17 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Create cache directory for vimeo/psalm"
-        run: "mkdir -p .build/psalm/"
+      - name: "Cache cache directory for phpstan/phpstan"
+        uses: "actions/cache@v4.2.3"
+        with:
+          path: ".build/phpstan/"
+          key: "php-${{ matrix.php-version }}-phpstan-${{ github.ref_name }}"
+          restore-keys: |
+            php-${{ matrix.php-version }}-phpstan-main
+            php-${{ matrix.php-version }}-phpstan-
 
-      - name: "Run vimeo/psalm"
-        run: "vendor/bin/psalm --config=psalm.xml --output-format=github --shepherd --show-info=false --stats --threads=4"
+      - name: "Run phpstan/phpstan"
+        run: "vendor/bin/phpstan --ansi --configuration=phpstan.neon --memory-limit=-1"
 
   tests:
     name: "Tests"

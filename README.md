@@ -7,7 +7,6 @@
 [![Renew](https://github.com/ergebnis/playground/workflows/Renew/badge.svg)](https://github.com/ergebnis/playground/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/playground/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/playground)
-[![Type Coverage](https://shepherd.dev/github/ergebnis/playground/coverage.svg)](https://shepherd.dev/github/ergebnis/playground)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/playground/v/stable)](https://packagist.org/packages/ergebnis/playground)
 [![Total Downloads](https://poser.pugx.org/ergebnis/playground/downloads)](https://packagist.org/packages/ergebnis/playground)

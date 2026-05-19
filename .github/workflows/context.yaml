@@ -7,8 +7,10 @@ on: # yamllint disable-line rule:truthy
   check_suite: null
   issues: null
   pull_request: null
+  # zizmor: ignore[dangerous-triggers] -- context only dumps GITHUB_CONTEXT for inspection in a playground repo.
   pull_request_target: null
   push: null
+  # zizmor: ignore[dangerous-triggers] -- context only dumps GITHUB_CONTEXT for inspection in a playground repo.
   workflow_run:
     types:
       - "completed"

@@ -87,6 +87,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683" # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401" # 2.32.0
@@ -151,6 +153,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683" # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: "Lint YAML files"
         uses: "ibiqlik/action-yamllint@2576378a8e339169678f9939646ee3ee325e845c" # v3.1.1
@@ -226,6 +230,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683" # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401" # 2.32.0
@@ -308,6 +314,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683" # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401" # 2.32.0
@@ -363,6 +371,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683" # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401" # 2.32.0
@@ -428,6 +438,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683" # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401" # 2.32.0
@@ -481,6 +493,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683" # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401" # 2.32.0
@@ -542,6 +556,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683" # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401" # 2.32.0

@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v4.2.2"
+        uses: "actions/checkout@v6.0.2"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.32.0"
@@ -87,7 +87,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v4.2.2"
+        uses: "actions/checkout@v6.0.2"
 
       - name: "Lint YAML files"
         uses: "ibiqlik/action-yamllint@v3.1.1"
@@ -159,7 +159,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v4.2.2"
+        uses: "actions/checkout@v6.0.2"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.32.0"
@@ -215,7 +215,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v4.2.2"
+        uses: "actions/checkout@v6.0.2"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.32.0"
@@ -267,7 +267,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v4.2.2"
+        uses: "actions/checkout@v6.0.2"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.32.0"
@@ -329,7 +329,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v4.2.2"
+        uses: "actions/checkout@v6.0.2"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.32.0"
@@ -379,7 +379,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v4.2.2"
+        uses: "actions/checkout@v6.0.2"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.32.0"
@@ -437,7 +437,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v4.2.2"
+        uses: "actions/checkout@v6.0.2"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.32.0"

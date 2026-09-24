@@ -11,7 +11,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/playground/v/stable)](https://packagist.org/packages/ergebnis/playground)
 [![Total Downloads](https://poser.pugx.org/ergebnis/playground/downloads)](https://packagist.org/packages/ergebnis/playground)
-[![Monthly Downloads](http://poser.pugx.org/ergebnis/playground/d/monthly)](https://packagist.org/packages/ergebnis/playground)
+[![Monthly Downloads](https://poser.pugx.org/ergebnis/playground/d/monthly)](https://packagist.org/packages/ergebnis/playground)
 
 This project provides a playground for a [`composer`](https://getcomposer.org) package with [GitHub Actions](https://docs.github.com/en/actions) workflows using standard PHP development tools.
 

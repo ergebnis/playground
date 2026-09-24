@@ -12,7 +12,7 @@ jobs:
   code-coverage:
     name: "Code Coverage"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
 
     timeout-minutes: 5
 
@@ -73,7 +73,7 @@ jobs:
   coding-standards:
     name: "Coding Standards"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
 
     timeout-minutes: 5
 
@@ -145,7 +145,7 @@ jobs:
   dependency-analysis:
     name: "Dependency Analysis"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
 
     timeout-minutes: 5
 
@@ -201,7 +201,7 @@ jobs:
   mutation-tests:
     name: "Mutation Tests"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
 
     timeout-minutes: 5
 
@@ -253,7 +253,7 @@ jobs:
   refactoring:
     name: "Refactoring"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
 
     timeout-minutes: 5
 
@@ -315,7 +315,7 @@ jobs:
   security-analysis:
     name: "Security Analysis"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
 
     timeout-minutes: 5
 
@@ -365,7 +365,7 @@ jobs:
   static-code-analysis:
     name: "Static Code Analysis"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
 
     timeout-minutes: 5
 
@@ -418,7 +418,7 @@ jobs:
   tests:
     name: "Tests"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
 
     timeout-minutes: 5
 

@@ -4,13 +4,13 @@
 
 The following versions of `ergebnis/playground` have active support:
 
-- `x.y.z`
+- `~0.14.0`
 
 ## Unsupported Versions
 
 The following versions of `ergebnis/playground` have reached their end of life:
 
-- `x.y.z`
+- `<0.14.0`
 
 ## Reporting a Vulnerability
 

@@ -1,6 +1,6 @@
 {
   "name": "ergebnis/playground",
-  "description": "Provides a GitHub repository template for a PHP library.",
+  "description": "A playground.",
   "license": "MIT",
   "type": "library",
   "authors": [

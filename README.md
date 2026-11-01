@@ -61,3 +61,5 @@ This project uses the [MIT license](LICENSE.md).
 ## Social
 
 Follow [@localheinz](https://twitter.com/intent/follow?screen_name=localheinz) and [@ergebnis](https://twitter.com/intent/follow?screen_name=ergebnis) on Twitter.
+
+Native stack test: lower.

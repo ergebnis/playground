@@ -64,3 +64,4 @@ Follow [@localheinz](https://twitter.com/intent/follow?screen_name=localheinz) a
 
 Stack test: parent.
 Stack test: child.
+Stack test: hand retarget parent.

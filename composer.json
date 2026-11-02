@@ -26,7 +26,7 @@
     "ergebnis/rector-rules": "^1.18.5",
     "fakerphp/faker": "^1.24.1",
     "infection/infection": "~0.27.11",
-    "phpstan/phpstan": "^2.2.15",
+    "phpstan/phpstan": "^2.3.2",
     "phpstan/phpstan-deprecation-rules": "^2.0.5",
     "phpstan/phpstan-phpunit": "^2.1.1",
     "phpstan/phpstan-strict-rules": "^2.1.0",

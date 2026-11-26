@@ -23,15 +23,14 @@
     "ergebnis/php-cs-fixer-config": "~6.66.0",
     "ergebnis/phpstan-rules": "^2.18.0",
     "ergebnis/phpunit-slow-test-detector": "^2.28.0",
-    "ergebnis/rector-rules": "^1.20.0",
+    "ergebnis/rector-config": "~0.5.0",
     "fakerphp/faker": "^1.24.1",
     "infection/infection": "~0.27.11",
     "phpstan/phpstan": "^2.3.7",
     "phpstan/phpstan-deprecation-rules": "^2.0.6",
     "phpstan/phpstan-phpunit": "^2.1.4",
     "phpstan/phpstan-strict-rules": "^2.1.2",
-    "phpunit/phpunit": "^10.5.65",
-    "rector/rector": "~2.8.5"
+    "phpunit/phpunit": "^10.5.65"
   },
   "autoload": {
     "psr-4": {

@@ -1,0 +1,30 @@
+# https://docs.github.com/en/actions
+
+name: "Command"
+
+on: # yamllint disable-line rule:truthy
+  pull_request: null
+  push:
+    branches:
+      - "main"
+
+jobs:
+  messages:
+    name: "Messages"
+
+    runs-on: "ubuntu-latest"
+
+    timeout-minutes: 5
+
+    steps:
+      - name: "Echo error"
+        run: |
+          echo "::error file=src/Example.php,line=6,endLine=6,title=Oh::Some error here"
+
+      - name: "Echo notice"
+        run: |
+          echo "::notice file=src/Example.php,col=5,line=18,endLine=20,title=Oh::Some notice here"
+
+      - name: "Echo warning"
+        run: |
+          echo "::warning file=src/Example.php,col=1,line=22,endLine=25,title=Oh::Some warning here"
